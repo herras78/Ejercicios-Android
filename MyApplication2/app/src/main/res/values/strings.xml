@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ejercicio2</string>
+    <string name="escribe_algo">Escribe algo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="BtnType1">Tipo1</string>
+    <string name="BtnType2">Tipo2</string>
+    <string name="BtnType3">Tipo3</string>
+    <string name="BtnType4">Tipo4</string>
+</resources>
