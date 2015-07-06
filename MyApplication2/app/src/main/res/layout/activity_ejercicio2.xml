@@ -51,6 +51,7 @@
                 android:hint="Escribe un número par" />
 
         </android.support.design.widget.TextInputLayout>
+
         <TextView android:id="@+id/LblEtiquetaSpin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,14 +59,17 @@
             android:hint="Opcion Spinner"
             android:textColorHint="#CFCFCF"
             android:background="#ff1ca5ff"
+            android:gravity="center"
             android:inputType="text"/>
         <Spinner android:id="@+id/SpOpciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"/>
 
         <TextView android:id="@+id/LblEtiquetaList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="Opcion Lista"
             android:textColorHint="#CFCFCF"
             android:background="#ff1ca5ff"

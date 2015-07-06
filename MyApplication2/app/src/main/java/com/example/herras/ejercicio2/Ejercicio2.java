@@ -97,7 +97,7 @@ public class Ejercicio2 extends ActionBarActivity {
         return new View.OnClickListener() {
             public void onClick(View arg0)
             {
-                if(btn.getId() == R.id.BtnTipo1){
+               /* if(btn.getId() == R.id.BtnTipo1){
                     textType.setText(textType.getText().toString() + " 123");
                     //textType.setBackgroundColor(Color.BLUE);
                     Editable str = (Editable)textType.getText();
@@ -113,6 +113,27 @@ public class Ejercicio2 extends ActionBarActivity {
                     }else {
                         txtInputLayout.setError(null);
                     }
+                }*/
+                switch (btn.getId()){
+                    case R.id.BtnTipo1:
+                        textType.setText(textType.getText().toString() + " 123");
+                        //textType.setBackgroundColor(Color.BLUE);
+                        Editable str = (Editable)textType.getText();
+                        str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 3, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        textType.setText(str);
+                        break;
+                    case R.id.BtnTipo2:
+                        textType.setTypeface(Typeface.SANS_SERIF);
+                        textType.setText(textType.getText().toString() + " 456");
+                        break;
+                    case R.id.BtnTipo3:
+                        String num = txtInput.getText().toString();
+                        if(num.isEmpty() || Integer.parseInt(num)%2 != 0){
+                            txtInputLayout.setError("Error:No es un numero par!!");
+                        }else {
+                            txtInputLayout.setError(null);
+                        }
+                        break;
                 }
             }
         };
@@ -130,8 +151,7 @@ public class Ejercicio2 extends ActionBarActivity {
 
     public AdapterView.OnItemSelectedListener preparaSpinner(){
         return new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent,
-                                        android.view.View v, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent,android.view.View v, int position, long id) {
                 textType.setText("Seleccionado: " +
                         parent.getItemAtPosition(position));
             }
@@ -142,21 +162,45 @@ public class Ejercicio2 extends ActionBarActivity {
         };
     }
 
+    static class ViewHolder{
+        TextView titulo;
+        TextView subtitulo;
+    }
+
     class AdaptadorTitulares extends ArrayAdapter<Titular> {
 
         public AdaptadorTitulares(Context context,Titular[] datos){
-            super(context,R.layout.listener_titular,datos);
+            super(context, R.layout.listener_titular, datos);
         }
 
         public View getView(int position, View convertView,ViewGroup parent){
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            View item = inflater.inflate(R.layout.listener_titular, null);
+            // Version optimizada
 
+            View item = convertView;
+            ViewHolder holder;
+
+            if(item == null) {
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                 item = inflater.inflate(R.layout.listener_titular, null);
+
+                holder = new ViewHolder();
+                holder.titulo = (TextView)item.findViewById(R.id.lblTitulo);
+                holder.subtitulo = (TextView)item.findViewById(R.id.lblSubTitulo);
+
+                item.setTag(holder);
+            }else{
+                holder = (ViewHolder)item.getTag();
+            }
+
+            /*Version sin optimizar
             TextView lblTitulo = (TextView)item.findViewById(R.id.lblTitulo);
             lblTitulo.setText(TitDatos[position].getTitulo());
 
             TextView lblSubTitlo = (TextView)item.findViewById(R.id.lblSubTitulo);
-            lblSubTitlo.setText(TitDatos[position].getSubtitulo());
+            lblSubTitlo.setText(TitDatos[position].getSubtitulo());*/
+
+            holder.titulo.setText( TitDatos[position].getTitulo());
+            holder.subtitulo.setText(TitDatos[position].getSubtitulo());
 
             return (item);
         }
