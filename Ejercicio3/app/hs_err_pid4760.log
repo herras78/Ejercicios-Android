@@ -1,0 +1,162 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 8192 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=4760, tid=4500
+#
+# JRE version:  (8.0_45-b15) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000019e000):  JavaThread "main" [_thread_in_vm, id=4500, stack(0x00000000026e0000,0x00000000027e0000)]
+
+Stack: [0x00000000026e0000,0x00000000027e0000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32b57a]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.util.Collections$SynchronizedCollection.<init>(Ljava/util/Collection;Ljava/lang/Object;)V+6
+j  java.util.Collections$SynchronizedSet.<init>(Ljava/util/Set;Ljava/lang/Object;)V+3
+j  java.util.Collections.synchronizedSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;+6
+j  java.util.Hashtable.entrySet()Ljava/util/Set;+18
+j  java.util.Hashtable.putAll(Ljava/util/Map;)V+1
+j  sun.misc.VM.saveAndRemoveProperties(Ljava/util/Properties;)V+20
+j  java.lang.System.initializeSystemClass()V+20
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000005573a800 JavaThread "Finalizer" daemon [_thread_blocked, id=4148, stack(0x0000000057be0000,0x0000000057ce0000)]
+  0x000000000237f800 JavaThread "Reference Handler" daemon [_thread_blocked, id=4812, stack(0x0000000057810000,0x0000000057910000)]
+=>0x000000000019e000 JavaThread "main" [_thread_in_vm, id=4500, stack(0x00000000026e0000,0x00000000027e0000)]
+
+Other Threads:
+  0x000000000237c800 VMThread [stack: 0x0000000057960000,0x0000000057a60000] [id=2320]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000000000019be40] SymbolTable_lock - owner thread: 0x000000000019e000
+
+Heap:
+ PSYoungGen      total 18944K, used 655K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 16384K, 4% used [0x00000000eab00000,0x00000000eaba3e30,0x00000000ebb00000)
+  from space 2560K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ec000000)
+  to   space 2560K, 0% used [0x00000000ebb00000,0x00000000ebb00000,0x00000000ebd80000)
+ ParOldGen       total 44032K, used 0K [0x00000000c0000000, 0x00000000c2b00000, 0x00000000eab00000)
+  object space 44032K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c2b00000)
+ Metaspace       used 1031K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 108K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000011e70000,0x0000000012080000] byte_map_base: 0x0000000011870000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006d0e4040
+ Begin Bits: [0x0000000012b50000, 0x0000000013b50000)
+ End Bits:   [0x0000000013b50000, 0x0000000014b50000)
+
+Polling page: 0x0000000000130000
+
+CodeCache: size=245760Kb used=402Kb max_used=402Kb free=245358Kb
+ bounds [0x0000000002ab0000, 0x0000000002d20000, 0x0000000011ab0000]
+ total_blobs=100 nmethods=0 adapters=75
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.064 loading class java/util/Collections$EmptyList done
+Event: 0.064 loading class java/util/Collections$EmptyMap
+Event: 0.064 loading class java/util/AbstractMap
+Event: 0.064 loading class java/util/AbstractMap done
+Event: 0.064 loading class java/util/Collections$EmptyMap done
+Event: 0.064 loading class java/util/Collections$SynchronizedSet
+Event: 0.064 loading class java/util/Collections$SynchronizedCollection
+Event: 0.064 loading class java/util/Collections$SynchronizedCollection done
+Event: 0.064 loading class java/util/Collections$SynchronizedSet done
+Event: 0.064 loading class java/util/Objects
+
+
+Dynamic libraries:
+0x000000013f030000 - 0x000000013f067000 	C:\Program Files\Java\jdk1.8.0_45\bin\java.exe
+0x0000000076f00000 - 0x00000000770ab000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000076de0000 - 0x0000000076eff000 	C:\Windows\system32\kernel32.dll
+0x000007fefd1c0000 - 0x000007fefd22b000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe5e0000 - 0x000007fefe6bb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefd480000 - 0x000007fefd51f000 	C:\Windows\system32\msvcrt.dll
+0x000007fefe890000 - 0x000007fefe8af000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe6c0000 - 0x000007fefe7ee000 	C:\Windows\system32\RPCRT4.dll
+0x0000000076ce0000 - 0x0000000076dda000 	C:\Windows\system32\USER32.dll
+0x000007feff180000 - 0x000007feff1e7000 	C:\Windows\system32\GDI32.dll
+0x000007feff1f0000 - 0x000007feff1fe000 	C:\Windows\system32\LPK.dll
+0x000007fefd230000 - 0x000007fefd2fa000 	C:\Windows\system32\USP10.dll
+0x000007fefb690000 - 0x000007fefb884000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7600.16385_none_fa645303170382f6\COMCTL32.dll
+0x000007fefd7d0000 - 0x000007fefd841000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefd780000 - 0x000007fefd7ae000 	C:\Windows\system32\IMM32.DLL
+0x000007fefea30000 - 0x000007fefeb39000 	C:\Windows\system32\MSCTF.dll
+0x0000000061770000 - 0x0000000061842000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\msvcr100.dll
+0x000000006c8e0000 - 0x000000006d163000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\server\jvm.dll
+0x000007fee90c0000 - 0x000007fee90c9000 	C:\Windows\system32\WSOCK32.dll
+0x000007fefe7f0000 - 0x000007fefe83d000 	C:\Windows\system32\WS2_32.dll
+0x000007feff200000 - 0x000007feff208000 	C:\Windows\system32\NSI.dll
+0x000007fef9df0000 - 0x000007fef9e2b000 	C:\Windows\system32\WINMM.dll
+0x000007fefbfb0000 - 0x000007fefbfbc000 	C:\Windows\system32\VERSION.dll
+0x00000000770c0000 - 0x00000000770c7000 	C:\Windows\system32\PSAPI.DLL
+0x0000000072920000 - 0x000000007292f000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\verify.dll
+0x0000000070b00000 - 0x0000000070b29000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\java.dll
+0x0000000070ae0000 - 0x0000000070af6000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\zip.dll
+0x000007fefd850000 - 0x000007fefe5d6000 	C:\Windows\system32\SHELL32.dll
+
+VM Arguments:
+jvm_args: -Xmx1024M -Dfile.encoding=windows-1252 -Duser.country=ES -Duser.language=es -Duser.variant 
+java_command: com.android.dx.command.Main --dex --output D:\workspace\Android_Ejercicios\Ejercicios\Ejercicio3\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-73171bafcbfdabe39af9af8362742ad05d955025.jar C:\Users\Herras\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar
+java_class_path (initial): C:\Users\Herras\AppData\Local\Android\sdk\build-tools\21.1.2\lib\dx.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Python27\;C:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static
+USERNAME=Herras
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 21 Model 2 Stepping 0, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7600 (6.1.7600.16385)
+
+CPU:total 8 (8 cores per cpu, 1 threads per core) family 21 model 2 stepping 0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+Memory: 4k page, physical 4141396k(172696k free), swap 5188076k(4804k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for windows-amd64 JRE (1.8.0_45-b15), built on Apr 30 2015 12:40:44 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue Jul 07 13:18:26 2015
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
