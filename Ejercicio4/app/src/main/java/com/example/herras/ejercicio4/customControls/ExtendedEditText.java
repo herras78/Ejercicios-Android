@@ -35,8 +35,8 @@ public class ExtendedEditText extends EditText {
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
-        canvas.drawRect(this.getWidth()-30*escala, 5*escala,this.getWidth()-5*escala, 20*escala, p1);
-        canvas.drawText("" + this.getText().toString().length(),this.getWidth()-28*escala, 17*escala, p2);
+        canvas.drawRect(this.getWidth()-55*escala, 30*escala,this.getWidth()-5*escala, 55*escala, p1);
+        canvas.drawText("" + this.getText().toString().length(),this.getWidth()-52*escala,50*escala, p2);
     }
 
 
@@ -47,7 +47,7 @@ public class ExtendedEditText extends EditText {
 
         p2 = new Paint(Paint.ANTI_ALIAS_FLAG);
         p2.setColor(Color.WHITE);
-        p2.setTextSize(20);
+        p2.setTextSize(60);
 
         escala = getResources().getDisplayMetrics().density;
     }
