@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Ejercicio4</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="controles1">Controles Personalizados I</string>
+    <string name="controles1">Controles Personalizados I y II</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Clave</string>
+    <string name="login">Login</string>
 
 </resources>

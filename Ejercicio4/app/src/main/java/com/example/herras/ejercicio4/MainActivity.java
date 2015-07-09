@@ -5,12 +5,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity {
+import com.example.herras.ejercicio4.Interfaces.OnLoginListener;
+import com.example.herras.ejercicio4.customControls.ControlLogin;
 
+public class MainActivity extends Activity {
+    private ControlLogin ctrLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        asociaControles();
+        preparaControles();
+
+    }
+
+    public void asociaControles(){
+        ctrLogin = (ControlLogin)findViewById(R.id.CtlLogin);
+    }
+
+    public void preparaControles(){
+        ctrLogin.setOnLoginListener(new OnLoginListener() {
+            @Override
+            public void onLogin(String usuario, String password) {
+                if(usuario.equals("demo") && password.equals("demo")){
+                    ctrLogin.setMensaje("Login Correcto.");
+                }else{
+                    ctrLogin.setMensaje("Datos Incorrectos.");
+                }
+            }
+        });
     }
 
     @Override

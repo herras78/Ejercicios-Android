@@ -35,8 +35,8 @@ public class ExtendedEditText extends EditText {
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
-        canvas.drawRect(this.getWidth()-55*escala, 30*escala,this.getWidth()-5*escala, 55*escala, p1);
-        canvas.drawText("" + this.getText().toString().length(),this.getWidth()-52*escala,50*escala, p2);
+        canvas.drawRect(this.getWidth()-55*escala, 20*escala,this.getWidth()-5*escala, 45*escala, p1);
+        canvas.drawText("" + this.getText().toString().length(),this.getWidth()-52*escala,40*escala, p2);
     }
 
 
