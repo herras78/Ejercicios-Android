@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/body">
+    
+    
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="30dp">
+        
+        <TextView
+            android:id="@+id/lblcuello"
+            android:text="Cuello"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content" 
+   			android:layout_marginLeft="40dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+        
+        <TextView
+            android:id="@+id/lbltrapecio"
+            android:text="Trapecio"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginLeft="125dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+    </LinearLayout>
+    
+      <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="18dp">
+        
+        <TextView
+            android:id="@+id/lblpectoral"
+            android:text="Pectoral"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content" 
+   			android:layout_marginLeft="17dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+        
+        <TextView
+            android:id="@+id/lblhombros"
+            android:text="Hombros"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginLeft="150dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="12dp">
+        
+        <TextView
+            android:id="@+id/lblbiceps"
+            android:text="Biceps"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content" 
+   			android:layout_marginLeft="20dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+        
+        <TextView
+            android:id="@+id/lbltriceps"
+            android:text="Triceps"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginLeft="175dp"
+   			android:padding="1dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="11dp"
+    	android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/lblabdom"
+            android:text="Abs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/marco"
+            android:textColor="@color/blue"
+            android:layout_marginTop="10dp"
+            android:padding="2dp"
+   			android:gravity="center"
+            android:textSize="17dp" />
+
+		<LinearLayout
+	        android:layout_width="fill_parent"
+	   		android:layout_height="wrap_content"
+	    	android:orientation="vertical">
+
+	        <TextView
+	            android:id="@+id/lbldorsales"
+	            android:text="Dorsales"
+	            android:textSize="17dp"
+	            android:layout_width="wrap_content"
+	   			android:layout_height="wrap_content"
+	   			android:layout_marginLeft="95dp"
+	   			android:padding="2dp"
+   				android:gravity="center"	
+	   			android:textColor="@color/blue"
+	   			android:background="@drawable/marco"/>
+	        <TextView
+	            android:id="@+id/lbllumbares"
+	            android:text="Lumbares"
+	            android:textSize="17dp"
+	            android:layout_width="wrap_content"
+	   			android:layout_height="wrap_content"
+	   			android:layout_marginLeft="95dp"
+	   			android:layout_marginTop="10dp"
+	   			android:padding="2dp"
+   				android:gravity="center"
+	   			android:textColor="@color/blue"
+	   			android:background="@drawable/marco"/>
+    
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="13dp">
+        
+        <TextView
+            android:id="@+id/lblantbra"
+            android:text="Ant.Brazo"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content" 
+   			android:layout_marginLeft="15dp"
+   			android:padding="2dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+        
+        <TextView
+            android:id="@+id/lblgluteos"
+            android:text="Gluteos"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginLeft="130dp"
+   			android:padding="2dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="27dp">
+        
+        <TextView
+            android:id="@+id/lblcuadriceps"
+            android:text="Cuadriceps"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content" 
+   			android:layout_marginLeft="20dp"
+   			android:padding="2dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+        
+        <TextView
+            android:id="@+id/lblisquiotibial"
+            android:text="Isquiotibial"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginLeft="105dp"
+   			android:padding="2dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>
+    </LinearLayout>
+    
+     <LinearLayout
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_marginTop="30dp">
+        
+         <LinearLayout
+	        android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	    	android:orientation="vertical">
+	        
+	        <TextView
+	            android:id="@+id/lblestiramientos"
+	            android:text="Estiramientos"
+	            android:textSize="17dp"
+	            android:layout_width="wrap_content"
+	   			android:layout_height="wrap_content" 
+	   			android:layout_marginLeft="10dp"
+	   			android:padding="2dp"
+   				android:gravity="center"
+	   			android:textColor="@color/blue"
+	   			android:background="@drawable/marco"/>
+	        
+	        <TextView
+	            android:id="@+id/lblcardio"
+	            android:text="Cardio"
+	            android:textSize="17dp"
+	            android:layout_width="wrap_content"
+	   			android:layout_height="wrap_content"
+	   			android:layout_marginTop="10dp"
+	   			android:layout_marginLeft="10dp"
+	   			android:padding="2dp"
+   				android:gravity="center"
+	   			android:textColor="@color/blue"
+	   			android:background="@drawable/marco"/>
+        
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/lblgemelos"
+            android:text="Gemelos"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:layout_marginTop="18dp"
+   			android:layout_marginLeft="115dp"
+   			android:padding="2dp"
+   			android:gravity="center"
+   			android:textColor="@color/blue"
+   			android:background="@drawable/marco"/>     
+    </LinearLayout>
+	
+     <LinearLayout
+        android:layout_width="fill_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal"
+	    android:layout_marginTop="5dp"
+	    android:gravity="center">
+    
+	     <LinearLayout
+		    android:id="@+id/btnsalir"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="5dp"		    
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Salir"
+		    	android:textSize="17dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+	    
+	    <LinearLayout
+		    android:id="@+id/btnejercicios"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="5dp"	    
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Ver Ejercicios"
+		    	android:textSize="17dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+		 
+		 <LinearLayout
+		    android:id="@+id/btncomenzar"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Continuar"
+		    	android:textSize="17dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>	
+	 </LinearLayout>
+     
+</LinearLayout><!-- From: file:/D:/workspace/Android_Ejercicios/Ejercicios/bodytrain/app/src/main/res/layout/bodyselect.xml -->

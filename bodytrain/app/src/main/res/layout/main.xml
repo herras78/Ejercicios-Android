@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/portmain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/logo1"
+        android:layout_width="fill_parent"
+        android:layout_height="95dp"
+        android:layout_gravity="top"
+        android:src="@drawable/logo" />
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:orientation="vertical"
+		android:gravity="right">
+	    
+	    <LinearLayout
+	        android:id="@+id/guirut"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginTop="20dp" 
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">
+		    
+			 <TextView 
+			    android:text="Rutinas guiadas"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+		    	android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>	 
+	     </LinearLayout> 
+	    
+	    <LinearLayout
+		    android:id="@+id/misrut"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginTop="20dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Mis rutinas"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+	 
+     <LinearLayout
+		    android:id="@+id/btnhistorial"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginTop="20dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Historial"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+		
+     <LinearLayout
+		    android:id="@+id/btnimc"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginTop="20dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="IMC"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+		 
+      <LinearLayout
+		    android:id="@+id/btnConsejos"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginTop="20dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">   
+			<TextView 
+			    android:text="Consejos"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"/>
+		 </LinearLayout>
+     
+	 </LinearLayout>
+    
+    <ImageButton 
+        android:id="@+id/btnedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/entrenamientos"
+        android:padding="0dp"
+        android:layout_marginLeft="15dp"/>
+		
+</LinearLayout>

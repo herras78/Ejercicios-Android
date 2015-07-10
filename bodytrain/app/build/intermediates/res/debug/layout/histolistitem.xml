@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+	android:background="@drawable/marcoblanco">
+	
+  <ImageView
+        android:id="@+id/logohisto"
+        android:src="@drawable/abdomen"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="1dp"/>
+ 
+    <LinearLayout
+        android:layout_width="wrap_content"
+   	 	android:layout_height="match_parent"
+   	 	android:orientation="vertical"
+   	 	android:gravity="center"
+   	 	android:layout_marginLeft="25dp">
+   	 	
+        <TextView 
+            android:id="@+id/lblhistodate"
+	        android:layout_width="wrap_content"
+	   	 	android:layout_height="wrap_content"
+	   	 	android:layout_margin="3dp"
+	   	 	android:textColor="#006699"
+	   	 	android:textStyle="bold"
+	   	 	android:textSize="18dp"/>	
+        
+        <TextView 
+            android:id="@+id/lblhistotit"
+            android:layout_width="wrap_content"
+   	 		android:layout_height="wrap_content"
+   	 		android:textColor="#006699"
+   	 		android:textStyle="bold"
+   	 		android:textSize="17dp"/>  	
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/D:/workspace/Android_Ejercicios/Ejercicios/bodytrain/app/src/main/res/layout/histolistitem.xml -->

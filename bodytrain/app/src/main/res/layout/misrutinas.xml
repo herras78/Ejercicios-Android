@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+	    
+	<ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="top"
+        android:src="@drawable/logos"/>
+
+	<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="1dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">  
+			 <TextView 
+			    android:text="Mis Rutinas"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_marginLeft="5dp"
+				android:layout_marginTop="1dp"
+				android:layout_marginBottom="1dp"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"/>		 
+	 </LinearLayout>	   	  
+  
+     <ListView 
+        android:id="@+id/lstmisrut"
+        android:layout_margin="5dp"
+		android:layout_width="fill_parent"
+		android:layout_height="320dp"
+		android:scrollbars="vertical"/>
+      
+     <LinearLayout 
+	     	android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center_horizontal">
+		 <LinearLayout
+		    android:id="@+id/salirmisrut"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="3dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">  
+			 <TextView 
+			    android:text="Salir"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+				android:layout_margin="4dp"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"/>
+			 
+	     </LinearLayout> 
+	     
+		 <LinearLayout
+		    android:id="@+id/btnnueva"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="3dp"
+		    android:orientation="horizontal"
+		    android:background="@drawable/titulos">  
+			 <TextView 
+			    android:text="+Nueva"
+		    	android:textSize="20dp"
+		    	android:textStyle="bold"
+		    	android:textColor="#006699"
+		    	android:layout_margin="4dp"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"/>
+			 
+	     </LinearLayout>  	 
+     </LinearLayout>
+	
+</LinearLayout>

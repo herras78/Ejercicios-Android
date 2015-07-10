@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+<LinearLayout 
+    android:id="@+id/portrealizaejer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="95dp"
+        android:layout_gravity="top"
+        android:src="@drawable/logo" />
+    
+    <TextView
+         android:id="@+id/lbltitreaeje"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:textColor="#006699"
+         android:textStyle="bold"
+         android:textSize="22dp"
+         android:layout_marginLeft="5dp"/>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+        
+        <ImageView 
+            android:id="@+id/imgreaeje"
+            android:layout_width="145dp"
+	        android:layout_height="145dp"
+	        android:layout_margin="5dp"
+	        android:src="@drawable/eje1"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical" >
+		    
+            <ToggleButton 
+                android:id="@+id/btnstarteje"
+	            android:textOn="COMENZAR"
+	   			android:textOff="COMENZAR"
+	   			android:textStyle="bold"
+	   			android:textSize="14dp"
+	   			android:textColor="#ffffff"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_marginRight="5dp"
+			    android:layout_marginTop="3dp"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/starstopbutton"/>
+
+            <TextView 
+                 android:id="@+id/lblserreaeje"
+		         android:layout_width="match_parent"
+		         android:layout_height="wrap_content"
+		         android:textColor="#006699"
+		         android:textStyle="bold"
+		         android:textSize="16dp"
+		         android:layout_marginLeft="5dp"
+		         android:layout_marginTop="10dp"/>
+             
+            <LinearLayout
+	            android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:orientation="horizontal" >
+			    
+                <CheckBox 
+                    android:id="@+id/chkeje1"
+                    android:checked="false"
+                    android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"/>
+                <CheckBox 
+                    android:id="@+id/chkeje2"
+                    android:checked="false"
+                    android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"/>
+                <CheckBox 
+                    android:id="@+id/chkeje3"
+                    android:checked="false"
+                    android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"/>
+                <CheckBox 
+                    android:id="@+id/chkeje4"
+                    android:checked="false"
+                    android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"/>
+                
+            </LinearLayout>
+        </LinearLayout>      
+    </LinearLayout>
+    
+    <TextView 
+        android:text="000"
+        android:id="@+id/lblrepcont"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="#006699"
+		android:textStyle="bold"
+		android:textSize="56dp"
+		android:layout_marginTop="0dp"
+		android:gravity="center_horizontal"/>
+    
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/barrepcont"
+        android:progress="0"
+        android:layout_width="300dp"
+		android:layout_height="25dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="6dp"/>"
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    android:layout_marginLeft="30dp"
+		    android:layout_marginBottom="10dp"
+		    android:gravity="bottom">"
+            
+            <TextView 
+                 android:text="Peso:"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:textColor="#006699"
+		         android:textStyle="bold"
+		         android:textSize="22dp"/>
+            
+            <TextView 
+                 android:id="@+id/lblpesvar"
+                 android:text="12Kg"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:textColor="#006699"
+		         android:textStyle="bold"
+		         android:textSize="35dp"
+		         android:layout_marginTop="5dp"/>
+        
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    android:layout_marginLeft="100dp"
+		    android:layout_marginBottom="10dp"
+		    android:gravity="bottom">"
+            
+            <TextView 
+                 android:text="Repet:"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:textColor="#006699"
+		         android:textStyle="bold"
+		         android:textSize="22dp"/>
+            
+            <TextView 
+                android:id="@+id/lblrepvar"
+                 android:clickable="true"
+                 android:text="30"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:textColor="#006699"
+		         android:textStyle="bold"
+		         android:textSize="35dp"
+		         android:layout_marginTop="5dp"/>
+        
+        </LinearLayout>
+               
+    </LinearLayout>
+    
+    
+</LinearLayout>
+    
+
+</LinearLayout><!-- From: file:/D:/workspace/Android_Ejercicios/Ejercicios/bodytrain/app/src/main/res/layout/realizaejer.xml -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bodytrainer</string>
+    <string name="series">Series:</string>
+    <string name="repeticiones">Repeticiones:</string>
+    <string name="peso">Peso:</string>
+    <string name="Lista_entre">Rutinas Guiadas</string>
+    <string name="mis_rutinas">Mis Rutinas</string>
+    <string name="Entre_edicion">Edita tus entrenamientos</string>
+    <string name="Ejer_edicion">Crea y modifica tus ejercicios</string>
+    <string name="Ejer_crea">Crea un nuevo ejercicio</string>
+    <string name="Ejer_list">Realizando Rutina</string>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#000033</color>
+    <string name="ejerbody">Crea y Edita Rutinas</string>
+    
+   
+
+</resources>

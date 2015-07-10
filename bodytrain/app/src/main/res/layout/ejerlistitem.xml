@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/logoEjer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/LblTitEjer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:textColor="#006699"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+ 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Series:"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:gravity="right"/>
+
+                <TextView
+                    android:id="@+id/LblSeries"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:gravity="left"/>"
+                
+                 <TextView
+                     android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Tiempo:"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:gravity="right"/>
+                 
+                 <TextView
+                    android:id="@+id/Lbltiempo"
+                     android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:gravity="left" />
+ 
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+                 
+                 <TextView
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Repeticiones:"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:gravity="right" />
+                 
+                 <TextView
+                    android:id="@+id/LblRepet"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:gravity="left" />
+
+                <TextView
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Peso:"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:gravity="right" />
+
+                <TextView
+                    android:id="@+id/LblPeso"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#777777"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:gravity="left" />
+           
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

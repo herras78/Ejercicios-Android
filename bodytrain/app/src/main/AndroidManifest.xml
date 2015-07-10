@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.valles.bodytrain"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+       
+        <activity	android:name=".Main"
+           			android:label="@string/app_name"
+           			android:screenOrientation="portrait">
+            <intent-filter>
+                
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>             
+        </activity>
+        
+        <activity	android:name=".EntreList"
+            		android:label="@string/Lista_entre"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>       
+            		
+        <activity	android:name=".EjerList"
+            		android:label="@string/Ejer_list"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+            		
+        <activity	android:name=".CreaEntre"
+            		android:label="@string/Entre_edicion"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+        
+        <activity	android:name=".RutEdit"
+            		android:label="@string/Ejer_edicion"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+       
+        <activity	android:name=".CreaEjer"
+            		android:label="@string/Ejer_crea"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+        
+        <activity	android:name=".RealizaEjer"
+            		android:label="Realizando Ejercicio"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+        
+        <activity	android:name=".EjerBody"
+            		android:label="@string/ejerbody"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+        
+        <activity	android:name=".MisRutinas"
+            		android:label="@string/mis_rutinas"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>
+            		 
+        <activity	android:name=".HistoriList"
+            		android:label="@string/mis_rutinas"
+            		android:noHistory="true"
+            		android:screenOrientation="portrait"/>   		      
+    
+    </application>
+
+</manifest>
