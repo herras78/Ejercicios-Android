@@ -3,19 +3,34 @@ package com.example.herras.ejercicio6;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
+    TextView lblmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+
+
+
         preparaTabs();
+        preparaControles();
+    }
+
+    public void preparaControles(){
+        lblmenu = (TextView)findViewById(R.id.dummy_textview);
     }
 
     public void preparaTabs(){
@@ -49,11 +64,16 @@ public class MainActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()){
+            case  R.id.action_nuevo:
+                lblmenu.setText("Opcion Nuveo");
+                return true;
+            case R.id.action_buscar:
+                lblmenu.setText("Buscar!");
+                return true;
+            case R.id.action_settings:
+                lblmenu.setText("Settings!");
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
