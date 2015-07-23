@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ejercicio7</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="c">C:</string>
+    <string name="codigo">Codigo</string>
+    <string name="n">N</string>
+    <string name="nombre">Nombre</string>
+    <string name="ins">Ins</string>
+    <string name="up">Update</string>
+    <string name="del">Del</string>
+    <string name="con">Cons</string>
+</resources>
