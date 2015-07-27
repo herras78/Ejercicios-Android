@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ActivityPrincipal">
+	
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:padding="10dp">
+        
+        <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_faltapan_i"/>
+        
+        <TextView
+        android:id="@+id/A_TXV_ID0"    
+        android:text="@string/app_name"
+        style="@style/A_BTN_STYLE"/>
+        
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/A_TXV_ID1"      
+        android:text="@string/A_TXV_1"
+        style="@style/A_BTN_STYLE"/>
+
+    <TextView
+        android:id="@+id/A_TXV_ID2"
+        android:text="@string/A_TXV_2" 
+        style="@style/A_BTN_STYLE"/>
+
+    <TextView
+        android:id="@+id/A_TXV_ID3"   
+        android:text="@string/A_TXV_3" 
+        style="@style/A_BTN_STYLE"/>
+
+</LinearLayout>

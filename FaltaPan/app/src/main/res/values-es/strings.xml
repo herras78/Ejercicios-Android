@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FaltaPan</string>
+    <string name="action_settings">Settings</string>
+    <string name="A_TXV_1">Ver Listas</string>
+    <string name="A_TXV_2">Settings</string>
+    <string name="A_TXV_3">Planificacion De Avisos</string>
+
+</resources>
+
+

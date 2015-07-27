@@ -67,6 +67,7 @@ public class MainActivity extends Activity {
         return new View.OnClickListener() {
             public void onClick(View arg0)
             {
+                int pos = getPosition(txtCodigo.getText().toString());
                     switch (b.getId()) {
                         case R.id.btn_ins:
                             dba.insertData(TABLENAME, getValues(true));
@@ -76,14 +77,12 @@ public class MainActivity extends Activity {
                         case R.id.btn_up:
                             dba.updateDate(TABLENAME, getValues(false), getConditions());
                             getData();
-                            adapter.notifyItemChanged(0);
+                            adapter.notifyItemChanged(pos);
                             break;
                         case R.id.btn_del:
                             dba.deleteDate(TABLENAME, getConditions());
-                            Item i= new Item(txtCodigo.getText().toString()+" - "+txtNombre.getText().toString());
-                            Log.e("ERROR onClick",datos.indexOf(i)+" "+txtCodigo.getText().toString()+" - "+txtNombre.getText().toString());
                             getData();
-                            adapter.notifyItemRemoved(datos.indexOf(i));
+                            adapter.notifyItemRemoved(pos);
                             break;
                     }
                 clearFields();
@@ -141,12 +140,26 @@ public class MainActivity extends Activity {
         if(c.moveToFirst()) {
             for (int i = 0; i < c.getCount(); i++) {
                 datos.add(new Item(c.getString(0) + " - " + c.getString(1)));
-                Log.e("ERROR getData",c.getString(0) + " - " + c.getString(1));
+                //Log.e("ERROR getData",c.getString(0) + " - " + c.getString(1));
                 if (i < c.getCount()-1) {
                     c.moveToNext();
                 }
             }
         }
+    }
+
+    public int getPosition(String code,String nombre){
+        for(Item item:datos){
+            if(item.getItem().equals(code +" - "+ nombre))return datos.indexOf(item);
+        }
+        return 0;
+    }
+
+    public int getPosition(String code){
+        for(Item item:datos){
+            if(item.getItem().substring(0,2).trim().equals(code))return datos.indexOf(item);
+        }
+        return 0;
     }
 
     @Override

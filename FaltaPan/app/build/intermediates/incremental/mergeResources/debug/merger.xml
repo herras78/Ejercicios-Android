@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res"><file name="background" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\background.png" qualifiers="hdpi" type="drawable"/><file name="ic_delete" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\ic_delete.png" qualifiers="hdpi" type="drawable"/><file name="ic_editar" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\ic_editar.png" qualifiers="hdpi" type="drawable"/><file name="ic_faltapan_i" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\ic_faltapan_i.png" qualifiers="hdpi" type="drawable"/><file name="ic_faltapan_ii" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\ic_faltapan_ii.png" qualifiers="hdpi" type="drawable"/><file name="ic_faltapan_iii" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\drawable-hdpi\ic_faltapan_iii.png" qualifiers="hdpi" type="drawable"/><file name="item_listado_listas" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\layout\item_listado_listas.xml" qualifiers="" type="layout"/><file name="item_listado_productos" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\layout\item_listado_productos.xml" qualifiers="" type="layout"/><file name="layout_activity_principal" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\layout\layout_activity_principal.xml" qualifiers="" type="layout"/><file name="layout_listado_listas" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\layout\layout_listado_listas.xml" qualifiers="" type="layout"/><file name="layout_listado_productos" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\layout\layout_listado_productos.xml" qualifiers="" type="layout"/><file name="activity_principal" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\menu\activity_principal.xml" qualifiers="" type="menu"/><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values\colors.xml" qualifiers=""><color name="azul_oscuro">#006699</color></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="TEXT_SIZE_XL">24dp</dimen><dimen name="TEXT_SIZE_M">16dp</dimen><dimen name="TEXT_SIZE_XXL">30dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="TEXT_SIZE_L">20dp</dimen><dimen name="LOGO_W">100dp</dimen><dimen name="A_BTN_MARGIN">20dp</dimen><dimen name="LOGO_H">100dp</dimen><dimen name="A_BTN_PADDING">4dp</dimen><dimen name="TEXT_SIZE_S">12dp</dimen><dimen name="LOGO_MARGIN">20dp</dimen></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values\strings.xml" qualifiers=""><string name="action_settings">Settings</string><string name="app_name">FaltaPan</string><string name="A_TXV_3">Scheduler of Jobs</string><string name="A_TXV_1">Show Lists</string><string name="A_TXV_2">Settings</string></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values\styles.xml" qualifiers=""><style name="A_BTN_STYLE" parent="@android:style/TextAppearance.Medium">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">@dimen/TEXT_SIZE_XXL</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:textColor">@color/azul_oscuro</item>
+	    <item name="android:layout_marginLeft">@dimen/A_BTN_MARGIN</item>
+	    <item name="android:layout_marginRight">@dimen/A_BTN_MARGIN</item>
+	    <item name="android:layout_marginTop">@dimen/A_BTN_MARGIN</item>
+	    <item name="android:padding">@dimen/A_BTN_PADDING</item> 
+	     <item name="android:gravity">center_vertical</item>
+	</style><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><style name="B_LV_ITEM_STYLE_0" parent="@android:style/TextAppearance.Medium">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">@dimen/TEXT_SIZE_XL</item>
+	    <item name="android:textColor">@color/azul_oscuro</item>
+		<item name="android:padding">@dimen/A_BTN_PADDING</item> 
+	    <item name="android:gravity">left</item>
+	</style><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style><style name="B_LV_ITEM_STYLE_1" parent="@android:style/TextAppearance.Medium">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">@dimen/TEXT_SIZE_S</item>
+	    <item name="android:textColor">@color/azul_oscuro</item>
+		<item name="android:padding">@dimen/A_BTN_PADDING</item> 
+	    <item name="android:gravity">left</item>
+	</style></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values-es\strings.xml" qualifiers="es"><string name="A_TXV_3">Planificacion De Avisos</string><string name="A_TXV_2">Settings</string><string name="A_TXV_1">Ver Listas</string><string name="app_name">FaltaPan</string><string name="action_settings">Settings</string></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values-sw720dp-land\dimens.xml" qualifiers="sw720dp-land"><dimen name="activity_horizontal_margin">128dp</dimen></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values-v11\styles.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\res\values-v14\styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file></source><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\build\generated\res\rs\debug"/><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\build\generated\res\generated\debug"/></dataSet><dataSet config="debug"><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\debug\res"/></dataSet><mergedItems/></merger>

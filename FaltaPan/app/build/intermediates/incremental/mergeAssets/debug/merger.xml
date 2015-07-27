@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\assets"><file name="Amble-Regular.ttf" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\assets\Amble-Regular.ttf"/><file name="rabiohead.ttf" path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\main\assets\rabiohead.ttf"/></source></dataSet><dataSet config="debug"><source path="D:\workspace\Android_Ejercicios\Ejercicios\FaltaPan\app\src\debug\assets"/></dataSet></merger>

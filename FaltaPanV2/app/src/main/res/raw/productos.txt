@@ -1,0 +1,5 @@
+Pera;26072015;26072015;3;;;2;Frutas;Carrefour;R.drawable.ic_buscar
+Manzana;26072015;26072015;3;;;2;Frutas;Carrefour;R.drawable.ic_buscar
+Platano;26072015;26072015;3;;;2;Frutas;Carrefour;R.drawable.ic_buscar
+Piña;26072015;26072015;3;;;2;Frutas;Carrefour;R.drawable.ic_buscar
+Naranja;26072015;26072015;3;;;2;Frutas;Carrefour;R.drawable.ic_buscar

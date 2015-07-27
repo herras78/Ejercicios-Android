@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:padding="10dp">
+        
+        <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_faltapan_i"/>
+        
+        <TextView
+        android:id="@+id/B_TXV_ID0"    
+        android:text="@string/app_name"
+        style="@style/A_BTN_STYLE"/>
+        
+    </LinearLayout>
+    
+    <ListView 
+        android:id="@+id/B_LV_0"
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:background="#00000000">
+        
+    </ListView>
+    
+
+</LinearLayout>
+<!-- From: file:/D:/workspace/Android_Ejercicios/Ejercicios/FaltaPan/app/src/main/res/layout/layout_listado_listas.xml -->
