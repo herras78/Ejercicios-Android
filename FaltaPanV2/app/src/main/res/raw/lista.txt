@@ -1,1 +1,8 @@
-Mi Compra del dia;26072015;26072015;26072015;5,Carrefour;P;0;R.drawable.ic_buscar
+Mi compra ;26072015;26072015;26072015;5;1;P;0;ic_faltapan
+Compra Fruta;26072015;26072015;26072015;4;2;C;100;ic_faltapan
+Mi Compra del dia;26072015;26072015;26072015;2;3;R;50;ic_faltapan
+Tu Compra;26072015;26072015;26072015;10;1;P;0;ic_faltapan
+Mi compra ;26072015;26072015;26072015;5;1;P;0;ic_faltapan
+Compra Fruta;26072015;26072015;26072015;4;2;C;100;ic_faltapan
+Mi Compra del dia;26072015;26072015;26072015;2;3;R;50;ic_faltapan
+Tu Compra;26072015;26072015;26072015;10;1;P;0;ic_faltapan

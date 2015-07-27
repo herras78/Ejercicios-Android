@@ -27,6 +27,7 @@ public class AdaptadorRecyclerView  extends RecyclerView.Adapter<AdaptadorRecycl
         View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.list_item,viewgroup,false);
 
         itemView.setOnClickListener(this);
+        //itemView.findViewById(R.id.listItem);
 
         RecyclerViewHolder rvh = new RecyclerViewHolder(itemView);
         return rvh;

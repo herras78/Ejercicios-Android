@@ -19,6 +19,8 @@ public class DBDataLoader {
 
     Context context;
      int[] rawRefs = new int[]{
+             R.raw.tiendas,
+             R.raw.familias,
              R.raw.lista,
              R.raw.productos,
              R.raw.lista_producto
@@ -54,7 +56,13 @@ public class DBDataLoader {
          ContentValues contentValues = new ContentValues();
 
          for(int i=0;i<splitedLine.length;i++){
-             contentValues.put(tableheaders[i],splitedLine[i]);
+             if(tableheaders[i].equals(ContractorTableValues.TablaLista.getRefImagen())){
+                 contentValues.put(tableheaders[i], context.getResources().getIdentifier(splitedLine[i].trim(), "drawable", context.getPackageName()));
+                 //Log.d("FaltaPan",tableheaders[i]+":"+splitedLine[i].trim()+":"+ context.getResources().getIdentifier(splitedLine[i].trim(),"drawable", context.getPackageName()));
+             }else{
+                 contentValues.put(tableheaders[i], splitedLine[i]);
+                 //Log.d("FaltaPan", tableheaders[i] + ":" + splitedLine[i].trim());
+             };
          }
 
          new DBAcces(context).insertData(tableName,contentValues);
@@ -68,6 +76,10 @@ public class DBDataLoader {
                 return ContractorTableValues.TablaProducto.TABLE_NAME;
             case R.raw.lista_producto:
                 return ContractorTableValues.TablaListaProducto.TABLE_NAME;
+            case R.raw.familias:
+                return ContractorTableValues.TablaFamilia.TABLE_NAME;
+            case R.raw.tiendas:
+                return ContractorTableValues.TablaTienda.TABLE_NAME;
             default:
                 return null;
         }
@@ -81,6 +93,10 @@ public class DBDataLoader {
                 return ContractorTableValues.TablaProducto.getCabeceras();
             case R.raw.lista_producto:
                 return ContractorTableValues.TablaListaProducto.getCabeceras();
+            case R.raw.familias:
+                return ContractorTableValues.TablaFamilia.getCabeceras();
+            case R.raw.tiendas:
+                return ContractorTableValues.TablaTienda.getCabeceras();
             default:
                 return null;
         }

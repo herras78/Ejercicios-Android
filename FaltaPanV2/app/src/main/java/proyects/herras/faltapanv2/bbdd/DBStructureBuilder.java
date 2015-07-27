@@ -23,6 +23,8 @@ public class DBStructureBuilder {
         dbAcces.insertData(creaTabla(new ContractorTableValues.TablaLista().setEstructura()));
         dbAcces.insertData(creaTabla(new ContractorTableValues.TablaProducto().setEstructura()));
         dbAcces.insertData(creaTabla(new ContractorTableValues.TablaListaProducto().setEstructura()));
+        dbAcces.insertData(creaTabla(new ContractorTableValues.TablaFamilia().setEstructura()));
+        dbAcces.insertData(creaTabla(new ContractorTableValues.TablaTienda().setEstructura()));
     }
 
     public String creaTabla(LinkedHashMap<String, String> estructura){

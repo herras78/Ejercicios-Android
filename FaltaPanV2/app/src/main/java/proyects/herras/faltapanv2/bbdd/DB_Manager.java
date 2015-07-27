@@ -19,16 +19,16 @@ public class DB_Manager extends SQLiteOpenHelper{
     {
         super(contexto, contractor.getDbName(), contractor.getFactory(), contractor.getVersion());
         context = contexto;
-        Log.d("FaltaPan", "DB_Manager,llamando al contructor");
+        //Log.d("FaltaPan", "DB_Manager,llamando al contructor");
     }
 
     public void onCreate(SQLiteDatabase db){
-        Log.d("FaltaPan", "DB_Manager,Ejecutando onCreate");
+        //Log.d("FaltaPan", "DB_Manager,Ejecutando onCreate");
 
     }
 
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva){
-        Log.d("FaltaPan", "DB_Manager,Ejecutando onUpdate");
+        //Log.d("FaltaPan", "DB_Manager,Ejecutando onUpdate");
         new DB_Structure_Drop(context);
         new DBStructureBuilder(context);
     }

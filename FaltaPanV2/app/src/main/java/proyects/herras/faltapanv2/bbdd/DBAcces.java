@@ -25,7 +25,7 @@ public class DBAcces {
 
     public void insertData(String query){
         db = dbManager.getWritableDatabase();
-        Log.d("FaltaPan", "DBAcces,Ejecutando :" + query);
+        //Log.d("FaltaPan", "DBAcces,Ejecutando :" + query);
         db.execSQL(query);
         db.close();
     }
