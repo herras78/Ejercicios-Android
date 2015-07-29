@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.AddListCard"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/NoTitleDialog" >
+        </activity>
     </application>
 
 </manifest>

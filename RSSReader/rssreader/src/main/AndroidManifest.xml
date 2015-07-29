@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.valles.rssreader"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="10" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+       
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/load"
+            android:screenOrientation="unspecified"
+            android:noHistory="true">
+            <intent-filter>
+                
+                <action android:name="android.intent.action.MAIN" />            
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ArticleListActivity"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.NoTitleBar"/>
+        
+        <activity
+            android:name=".AboutActivity"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/NoTitleDialog"/>
+        
+         <activity
+            android:name=".ProgressActivity"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/NoTitleDialog"/>
+        
+        <activity
+            android:name=".ItemReader"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        
+        <activity
+            android:name=".SourceCreation"
+            android:noHistory="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/NoTitleDialog"/>
+        
+        <service android:name=".service.LoaderIntentService">
+            <intent-filter>
+                <action android:name="com.valles.rssreader.ACTION_INTENT_SERVICE"/>
+            </intent-filter>    
+        </service>
+        
+    </application>
+
+</manifest>

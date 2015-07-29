@@ -1,6 +1,11 @@
 package proyects.herras.faltapanv2.activities;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -28,9 +34,11 @@ import proyects.herras.faltapanv2.support.Lista;
 public class MainScreen extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private CollapsingToolbarLayout ctlLayout;
     private RecyclerView  listRecyclerView;
     private ListRecyclerViewAdapter listRecyclerViewAdapter;
     private ArrayList<Lista> datos;
+    private FloatingActionButton addListBtn;
 
     private DBAcces dba;
 
@@ -38,11 +46,11 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         deployDB();
 
         instanceControls();
         prepareControls();
-        prepareRecycler();
 
 
        /* Cursor c = new DBAcces(this).getCursor("SELECT * FROM " + ContractorTableValues.TablaProducto.TABLE_NAME);
@@ -51,16 +59,21 @@ public class MainScreen extends AppCompatActivity {
     }
 
     public void instanceControls(){
+        addListBtn = (FloatingActionButton)findViewById(R.id.add_btn_lst);
         toolbar = (Toolbar)findViewById(R.id.mainscreenbar);
+        ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.ctlLayout);
+
         listRecyclerView = (RecyclerView) findViewById(R.id.list_recycler);
 
         datos = new ArrayList<Lista>();
         dba = new DBAcces(this);
-
-
     }
-    public void prepareControls(){
+
+    public void prepareControls() {
         setSupportActionBar(toolbar);
+        ctlLayout.setTitle("Mis Listas");//Generar recurso
+        addListBtn.setOnClickListener(getOnClickListener(addListBtn));
+        prepareRecycler();
     }
 
     public void prepareRecycler(){
@@ -72,12 +85,7 @@ public class MainScreen extends AppCompatActivity {
     public ListRecyclerViewAdapter getAdaper(){
         getData();
         listRecyclerViewAdapter = new ListRecyclerViewAdapter(datos);
-        listRecyclerViewAdapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        listRecyclerViewAdapter.setOnClickListener(getOnClickListener(null));
         return listRecyclerViewAdapter;
     }
 
@@ -94,6 +102,26 @@ public class MainScreen extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public View.OnClickListener getOnClickListener(View v) {
+        //Logica para cada btn
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.getId()== R.id.add_btn_lst){
+                Intent i = new Intent(MainScreen.this,AddListCard.class);
+                startActivity(i);
+                }else{
+                    String lista = ((TextView)view.findViewById(R.id.tit_list)).getText().toString();                                               ;
+                    Bundle b = new Bundle();
+                    b.putString("LISTA",lista);
+                    Intent intent = new Intent(MainScreen.this,ProductScreen.class);
+                    intent.putExtras(b);
+                    startActivity(intent);
+                }
+            }
+        };
     }
 
     public void deployDB(){

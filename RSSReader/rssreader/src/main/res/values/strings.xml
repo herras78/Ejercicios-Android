@@ -1,0 +1,36 @@
+<resources>
+
+    <string name="app_name">HRSS Reader</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">HRSS Reader</string>
+    <string name="menu">Menu Principal</string>
+    <string name="load">Cargando...</string>
+    <string name="empresa"> by Hertec Studios.</string>
+    <string name="titmain">RSS Reader</string>
+    <string name="fuente">Fuentes : 0/12</string>
+    <string name="btnaceptar">Aceptar</string>
+    <string name="btncontinuar">Continuar</string>
+    <string name="m_acercade">Acerca de..</string>
+    <string name="m_recargar">Recargar</string>
+    <string name="m_agregar">Agregar</string>
+    <string name="s_select_name">Nombre de fuente:</string> 
+    <string name="s_select_url">URL:</string>
+    <string name="s_btn_save">Guardar</string>
+    <string name="added_source">Nueva fuente añadida</string>
+    <string name="mal_formed_url">Compruebe que la URL esta escrita correctamente</string>
+    <string name="no_connect_url">La URL no existe o no dispone de conexion a internet</string>
+    <string name="complet_fields">Debe rellenar los campos</string>
+    <string name="acerca">
+        Version 0.6.0 \n
+        Desarrollado por Hertec Studios.
+    </string>
+	<string name="licencia">
+	     Usted es libre de:  \n
+		\tCompartir - copiar, distribuir, ejecutar y comunicar públicamente la obra.\n\n
+		\tHacer obras deribadas bajo las siguientes condiciones:\n\n
+		\tAtribución — Debe reconocer los créditos de la obra de la manera especificada por el autor o el licenciante (pero no de una manera que sugiera que tiene su apoyo o que apoyan el uso que hace de su obra).\n\n
+		\tNo Comercial — No puede utilizar esta obra para fines comerciales.\n\n
+		\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.\n\n
+		\tCompartir bajo la Misma Licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.
+	</string>
+</resources>

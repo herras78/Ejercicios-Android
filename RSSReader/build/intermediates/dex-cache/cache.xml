@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Herras\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0 rc3"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\workspace\Android_Ejercicios\Ejercicios\RSSReader\rssreader\build\intermediates\pre-dexed\debug\support-v4-18.0.0-f972fee48c56c6fddc362eecc68052c25733cfb4.jar" />
+    </item>
+    <item
+        jar="D:\workspace\Android_Ejercicios\Ejercicios\RSSReader\rssreader\build\intermediates\exploded-aar\RSSReader\sAXRSSReader\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0 rc3"
+        sha1="276354454f32dd4b8d95987db6d2d8b4c1a7233f">
+        <dex dex="D:\workspace\Android_Ejercicios\Ejercicios\RSSReader\rssreader\build\intermediates\pre-dexed\debug\classes-c17ce7dce5bd07f6ed44d0d9df195dfc5fe8d3a9.jar" />
+    </item>
+
+</items>

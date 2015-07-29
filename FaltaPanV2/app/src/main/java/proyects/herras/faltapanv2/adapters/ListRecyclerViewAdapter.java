@@ -34,7 +34,6 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         return rvh;
     }
 
-
     public void setOnClickListener(View.OnClickListener listener){
         this.listener = listener;
     }
@@ -60,6 +59,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         private TextView txtTitList;
         private TextView txtNumProduct;
         private TextView txtPercentList;
+        private TextView txtDate;
 
         public ListaRecyclerViewHolder(View itemView){
             super(itemView);
@@ -67,6 +67,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
             txtTitList = (TextView)itemView.findViewById(R.id.tit_list);
             txtNumProduct = (TextView)itemView.findViewById(R.id.num_product);
             txtPercentList = (TextView)itemView.findViewById(R.id.percent_product);
+            txtDate = (TextView)itemView.findViewById(R.id.date_list);
         }
 
         public void bindLista(Lista list){
@@ -74,6 +75,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
             txtTitList.setText(list.getNombre());
             txtNumProduct.setText(list.getNumElementos()+" Productos");
             txtPercentList.setText(list.getPorcentajeCompletado()+"%");
+            txtDate.setText(list.getFechaCreacion());
         }
     }
 }

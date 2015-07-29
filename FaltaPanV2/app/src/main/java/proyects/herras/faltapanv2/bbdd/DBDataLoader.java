@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import proyects.herras.faltapanv2.R;
 import proyects.herras.faltapanv2.contractor.ContractorTableValues;
@@ -58,7 +60,9 @@ public class DBDataLoader {
          for(int i=0;i<splitedLine.length;i++){
              if(tableheaders[i].equals(ContractorTableValues.TablaLista.getRefImagen())){
                  contentValues.put(tableheaders[i], context.getResources().getIdentifier(splitedLine[i].trim(), "drawable", context.getPackageName()));
-                 //Log.d("FaltaPan",tableheaders[i]+":"+splitedLine[i].trim()+":"+ context.getResources().getIdentifier(splitedLine[i].trim(),"drawable", context.getPackageName()));
+                // Log.d("FaltaPan",tableheaders[i]+":"+splitedLine[i].trim()+":"+ context.getResources().getIdentifier(splitedLine[i].trim(),"drawable", context.getPackageName()));
+             }else if(tableheaders[i].equals(ContractorTableValues.TablaLista.getFechaCreacion())){
+                 contentValues.put(tableheaders[i], (new SimpleDateFormat("dd/MM/yyyy")).format(new Date()));
              }else{
                  contentValues.put(tableheaders[i], splitedLine[i]);
                  //Log.d("FaltaPan", tableheaders[i] + ":" + splitedLine[i].trim());

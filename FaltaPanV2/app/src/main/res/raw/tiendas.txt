@@ -1,6 +1,6 @@
 Carrefour;27072015;27072015;ic_carrefour
 Mercadona;27072015;27072015;ic_mercadona
-Dia;27072015;27072015;ic_Dia
+Dia;27072015;27072015;ic_dia
 Corte Ingles;27072015;27072015;ic_corteingles
 LIDL;27072015;27072015;ic_lidl
 Caprabo;27072015;27072015;ic_caprabo
@@ -11,13 +11,13 @@ Aldi;27072015;27072015;ic_aldi
 Carniceria;27072015;27072015;ic_carne
 Farmacia;27072015;27072015;ic_farmacia
 Ferreteria;27072015;27072015;ic_ferreteria
-Jardineria;27072015;27072015;ic_jardineria
+Jardineria;27072015;27072015;ic_supermercado
 Papeleria;27072015;27072015;ic_papeleria
-Panaderia;27072015;27072015;ic_panaderia
-Pescaderia;27072015;27072015;ic_pescaderia
-Mercado;27072015;27072015;ic_mercado
-Otros;27072015;27072015;ic_otros
-MediaMarkt;27072015;27072015;ic_mediamarkt
+Panaderia;27072015;27072015;ic_supermercado
+Pescaderia;27072015;27072015;ic_supermercado
+Mercado;27072015;27072015;ic_supermercado
+Otros;27072015;27072015;ic_supermercado
+MediaMarkt;27072015;27072015;ic_supermercado
 Ikea;27072015;27072015;ic_ikea
 Aki;27072015;27072015;ic_aki
 Leroy Merlyn;27072015;27072015;ic_leroymerlyn

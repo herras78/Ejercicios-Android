@@ -40,9 +40,9 @@ public class ContractorTableValues {
 
         public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
         public static final String PARAM_NOMBRE = "TEXT NOT NULL";
-        public static final String PARAM_FECHA_CREACION = "INTEGER NOT NULL";
-        public static final String PARAM_FECHA_MODIFICACION = "INTEGER";
-        public static final String PARAM_FECHA_EJECUCION = "INTEGER";
+        public static final String PARAM_FECHA_CREACION = "TEXT NOT NULL";
+        public static final String PARAM_FECHA_MODIFICACION = "TEXT";
+        public static final String PARAM_FECHA_EJECUCION = "TEXT";
         public static final String PARAM_NUM_ELEMENTOS = "INTEGER";
         public static final String PARAM_NOMBRE_TIENDA = "TEXT";
         public static final String PARAM_ESTADO = "TEXT";
@@ -92,7 +92,7 @@ public class ContractorTableValues {
             return TABLE_NAME;
         }
 
-        public static String getNOMBRE() {
+        public static String getNombre() {
             return NOMBRE;
         }
 
@@ -142,8 +142,8 @@ public class ContractorTableValues {
 
         public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
         public static final String PARAM_NOMBRE = "TEXT NOT NULL";
-        public static final String PARAM_FECHA_CREACION = "INTEGER";
-        public static final String PARAM_FECHA_MODIFICACION = "INTEGER";
+        public static final String PARAM_FECHA_CREACION = "TEXT";
+        public static final String PARAM_FECHA_MODIFICACION = "TEXT";
         public static final String PARAM_FAMILIA = "TEXT";
         public static final String PARAM_TIENDA = "TEXT";
         public static final String PARAM_REF_IMAGEN = "INTEGER";
@@ -189,7 +189,7 @@ public class ContractorTableValues {
             return TABLE_NAME;
         }
 
-        public static String getNOMBRE() {
+        public static String getNombre() {
             return NOMBRE;
         }
 
@@ -201,11 +201,11 @@ public class ContractorTableValues {
             return FECHA_MODIFICACION;
         }
 
-        public static String getFAMILIA() {
+        public static String getFamilia() {
             return FAMILIA;
         }
 
-        public static String getTIENDA() {
+        public static String getTienda() {
             return TIENDA;
         }
 
@@ -326,8 +326,8 @@ public class ContractorTableValues {
 
         public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
         public static final String PARAM_NOMBRE = "TEXT NOT NULL";
-        public static final String PARAM_FECHA_CREACION = "INTEGER";
-        public static final String PARAM_FECHA_MODIFICACION = "INTEGER";
+        public static final String PARAM_FECHA_CREACION = "TEXT";
+        public static final String PARAM_FECHA_MODIFICACION = "TEXT";
         public static final String PARAM_REF_IMAGEN = "INTEGER";
 
         public LinkedHashMap<String, String> setEstructura(){
@@ -359,7 +359,7 @@ public class ContractorTableValues {
             return TABLE_NAME;
         }
 
-        public static String getNOMBRE() {
+        public static String getNombre() {
             return NOMBRE;
         }
 
@@ -387,8 +387,8 @@ public class ContractorTableValues {
 
         public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
         public static final String PARAM_NOMBRE = "TEXT NOT NULL";
-        public static final String PARAM_FECHA_CREACION = "INTEGER";
-        public static final String PARAM_FECHA_MODIFICACION = "INTEGER";
+        public static final String PARAM_FECHA_CREACION = "TEXT";
+        public static final String PARAM_FECHA_MODIFICACION = "TEXT";
         public static final String PARAM_REF_IMAGEN = "INTEGER";
 
         public LinkedHashMap<String, String> setEstructura(){
@@ -400,7 +400,7 @@ public class ContractorTableValues {
             hm_estructura.put("FECHA_CREACION", FECHA_CREACION + " " + PARAM_FECHA_CREACION);
             hm_estructura.put("FECHA_MODIFICACION", FECHA_MODIFICACION + " " + PARAM_FECHA_MODIFICACION);
             hm_estructura.put("REF_IMAGEN", REF_IMAGEN + " " + PARAM_REF_IMAGEN);
-            // Log.d("FaltaPan", "DBManager,Devolviendo estructura de Tabla Producto");
+            //Log.d("FaltaPan", "DBManager,Devolviendo estructura de Tabla Producto");
             return hm_estructura;
         }
 
@@ -420,7 +420,7 @@ public class ContractorTableValues {
             return TABLE_NAME;
         }
 
-        public static String getNOMBRE() {
+        public static String getNombre() {
             return NOMBRE;
         }
 

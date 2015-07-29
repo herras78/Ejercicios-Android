@@ -18,7 +18,7 @@ public class DBStructureBuilder {
     private static String TABLE_NAME = "TABLE_NAME";
 
     public DBStructureBuilder(Context context){
-        Log.d("FaltaPan", "DBStructureBulder,llamando al contructor");
+       // Log.d("FaltaPan", "DBStructureBulder,llamando al contructor");
         DBAcces dbAcces = new DBAcces(context);
         dbAcces.insertData(creaTabla(new ContractorTableValues.TablaLista().setEstructura()));
         dbAcces.insertData(creaTabla(new ContractorTableValues.TablaProducto().setEstructura()));
