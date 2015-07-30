@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:hint="Nombre de Lista"
-                android:id="@+id/name_list"
+                android:id="@+id/name_new_list"
                 android:layout_toRightOf="@+id/img_new_list"
                 android:layout_alignParentTop="true"/>
 
@@ -44,7 +44,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Tienda "
                 android:id="@+id/lbl_tienda"
-                android:layout_below="@+id/name_list"
+                android:layout_below="@+id/name_new_list"
                 android:layout_toRightOf="@+id/img_new_list" />
             <View
                 android:layout_width="150dp"

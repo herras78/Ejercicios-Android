@@ -4,12 +4,9 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,14 +42,14 @@ public class AddListCard extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_list_card);
+        setContentView(R.layout.add_list_screen);
 
         prepareControls();
         setListener();
     }
 
     public void prepareControls(){
-        nombre = (EditText)findViewById(R.id.name_list);
+        nombre = (EditText)findViewById(R.id.name_new_list);
         aceptar = (TextView)findViewById(R.id.new_card_acept);
         cancelar = (TextView)findViewById(R.id.new_card_cancel);
         img = (ImageView)findViewById(R.id.img_new_list);

@@ -165,8 +165,6 @@ public class ContractorTableValues {
             hm_estructura.put("CONSTRAINT_FK_PRODUCTO_FAMILIA", CONSTRAINT_FK_PRODUCTO_FAMILIA);
             hm_estructura.put("CONSTRAINT_FK_PRODUCTO_TIENDA", CONSTRAINT_FK_PRODUCTO_TIENDA);
 
-
-
            // Log.d("FaltaPan", "DBManager,Devolviendo estructura de Tabla Producto");
             return hm_estructura;
         }

@@ -10,7 +10,7 @@
         android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:elevation="4dp"
+        android:elevation="2dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -32,57 +32,21 @@
                 android:id="@+id/mainscreenbar"
                 layout="@layout/main_toolbar"/>
 
-           <!-- <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="bottom|left"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="3dp">
-
-                <TextView android:id="@+id/tool_txt_path1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Listas"
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
-
-                <TextView android:id="@+id/tool_txt_path2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" > Productos"
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
-
-                <TextView android:id="@+id/tool_txt_path3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" > Edita Producto"
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
-            </LinearLayout>-->
-
-        </android.support.design.widget.CollapsingToolbarLayout>
+          </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <!-- <FrameLayout
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     android:foreground="@drawable/header_shadow">-->
-
 
      <android.support.v7.widget.RecyclerView
          xmlns:android="http://schemas.android.com/apk/res/android"
          android:id="@+id/list_recycler"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:padding="1dp"
          android:layout_marginTop="16dp"
          android:scrollbars="vertical"
          app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    <!-- </FrameLayout>-->
-
      <android.support.design.widget.FloatingActionButton
-         android:id="@+id/add_btn_lst"
+         android:id="@+id/add_list_btn"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="16dp"

@@ -25,7 +25,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
     }
 
     public ListaRecyclerViewHolder onCreateViewHolder(ViewGroup viewgroup, int viewType){
-        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.card_list_item,viewgroup,false);
+        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.item_list_card,viewgroup,false);
 
         itemView.setOnClickListener(this);
         //itemView.findViewById(R.id.listItem);
@@ -53,28 +53,28 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
     }
 
     public static class ListaRecyclerViewHolder extends RecyclerView.ViewHolder{
-       private ImageView imgList ;
-        private ImageView imgStatusList ;
-        private ImageView imgPercentList ;
+        private ImageView imgList ;
         private TextView txtTitList;
         private TextView txtNumProduct;
         private TextView txtPercentList;
         private TextView txtDate;
+        //private ImageView imgStatusList ;
+        //private ImageView imgPercentList ;
 
         public ListaRecyclerViewHolder(View itemView){
             super(itemView);
-            imgList = (ImageView)itemView.findViewById(R.id.img_list);
-            txtTitList = (TextView)itemView.findViewById(R.id.tit_list);
+            imgList = (ImageView)itemView.findViewById(R.id.list_img);
+            txtTitList = (TextView)itemView.findViewById(R.id.list_tit);
             txtNumProduct = (TextView)itemView.findViewById(R.id.num_product);
-            txtPercentList = (TextView)itemView.findViewById(R.id.percent_product);
-            txtDate = (TextView)itemView.findViewById(R.id.date_list);
+            txtPercentList = (TextView)itemView.findViewById(R.id.percent_list);
+            txtDate = (TextView)itemView.findViewById(R.id.list_date);
         }
 
         public void bindLista(Lista list){
             imgList.setImageResource(list.getImagen());
             txtTitList.setText(list.getNombre());
-            txtNumProduct.setText(list.getNumElementos()+" Productos");
-            txtPercentList.setText(list.getPorcentajeCompletado()+"%");
+            txtNumProduct.setText(list.getNumElementos()+"/"+list.getNumElementos()+" Productos");
+            txtPercentList.setText(list.getPorcentajeCompletado()+"% Completado");
             txtDate.setText(list.getFechaCreacion());
         }
     }

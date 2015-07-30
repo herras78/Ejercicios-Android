@@ -8,20 +8,6 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:layout_collapseMode="pin">
-    <!--
-    android:gravity="center"
-    android:elevation="4dp"
-    android:background="?attr/colorPrimary"
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView android:id="@+id/tool_txt_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,21 +19,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FaltaPan"
-                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
 
-            <TextView android:id="@+id/tool_txt_path2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
-
-            <TextView android:id="@+id/tool_txt_path3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
         </LinearLayout>
-
-   <!-- </LinearLayout>-->
 
 </android.support.v7.widget.Toolbar>

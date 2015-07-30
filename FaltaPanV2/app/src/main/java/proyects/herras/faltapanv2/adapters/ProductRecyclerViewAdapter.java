@@ -4,35 +4,32 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import proyects.herras.faltapanv2.R;
-import proyects.herras.faltapanv2.support.Lista;
 import proyects.herras.faltapanv2.support.Producto;
 
 /**
- * Created by Herras on 27/07/2015.
+ * Created by Herras on 30/07/2015.
  */
-public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductoRecyclerViewHolder> implements View.OnClickListener{
+public class ProductRecyclerViewAdapter
+        extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductRecyclerViewHolder>
+        implements View.OnClickListener {
 
     private ArrayList<Producto> datos;
     private View.OnClickListener listener;
 
-    public ProductRecyclerViewAdapter(ArrayList<Producto> datos){
-        this.datos = datos;
-    }
+    public ProductRecyclerViewAdapter(ArrayList<Producto> datos){this.datos = datos;}
 
-    public ProductoRecyclerViewHolder onCreateViewHolder(ViewGroup viewgroup, int viewType){
-        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.card_list_item,viewgroup,false);
+    public ProductRecyclerViewHolder onCreateViewHolder(ViewGroup viewgroup, int viewType){
+        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.product_item,viewgroup,false);
 
         itemView.setOnClickListener(this);
-        //itemView.findViewById(R.id.listItem);
 
-        ProductoRecyclerViewHolder rvh = new ProductoRecyclerViewHolder(itemView);
-        return rvh;
+        ProductRecyclerViewHolder prvh = new ProductRecyclerViewHolder(itemView);
+        return prvh;
     }
 
     public void setOnClickListener(View.OnClickListener listener){
@@ -44,40 +41,43 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
             listener.onClick(view);
     }
 
-    public void onBindViewHolder(ProductRecyclerViewAdapter.ProductoRecyclerViewHolder viewHolder, int pos){
+    public void onBindViewHolder(ProductRecyclerViewHolder viewHolder, int pos){
         Producto item = datos.get(pos);
-        viewHolder.bindProducto(item);
+        viewHolder.bindLista(item);
     }
 
     public int getItemCount() {
         return datos.size();
     }
 
-    public static class ProductoRecyclerViewHolder extends RecyclerView.ViewHolder{
-       private ImageView imgList ;
-        private ImageView imgStatusList ;
-        private ImageView imgPercentList ;
-        private TextView txtTitList;
-        private TextView txtNumProduct;
-        private TextView txtPercentList;
-        private TextView txtDate;
+    public static class ProductRecyclerViewHolder extends RecyclerView.ViewHolder{
+        private TextView productTit;
+        private TextView productDate;
+        private TextView productFamily;
+        private TextView productStatus;
+        private TextView productCuantity;
+        private TextView productCuantityUnit;
+        private TextView productBrand;
 
-        public ProductoRecyclerViewHolder(View itemView){
+        public ProductRecyclerViewHolder(View itemView){
             super(itemView);
-            imgList = (ImageView)itemView.findViewById(R.id.img_list);
-            txtTitList = (TextView)itemView.findViewById(R.id.tit_list);
-            txtNumProduct = (TextView)itemView.findViewById(R.id.num_product);
-            txtPercentList = (TextView)itemView.findViewById(R.id.percent_product);
-            txtDate = (TextView)itemView.findViewById(R.id.date_list);
-        }
+            productTit = (TextView)itemView.findViewById(R.id.product_tit);
+            productDate = (TextView)itemView.findViewById(R.id.product_date);
+            productFamily = (TextView)itemView.findViewById(R.id.product_family);
+            productStatus = (TextView)itemView.findViewById(R.id.product_status);
+            productCuantity = (TextView)itemView.findViewById(R.id.product_cuantity);
+            productCuantityUnit = (TextView)itemView.findViewById(R.id.product_cuantity_unit);
+            productBrand = (TextView)itemView.findViewById(R.id.product_brand);
+         }
 
-        public void bindProducto(Producto product){
-            /*imgList.setImageResource(list.getImagen());
-            txtTitList.setText(list.getNombre());
-            txtNumProduct.setText(list.getNumElementos()+" Productos");
-            txtPercentList.setText(list.getPorcentajeCompletado()+"%");
-            txtDate.setText(list.getFechaCreacion());*/
+        public void bindLista(Producto product){
+            productTit.setText(product.getTitle());
+            productDate.setText(product.getFechaCreacion());
+            productFamily.setText(product.getFamily());
+            productStatus.setText(product.getStatus());
+            productCuantity.setText(product.getCuantity() + "");
+            productCuantityUnit.setText(product.getCuantityUnit());
+            productBrand.setText(product.getBrand());
         }
     }
 }
-

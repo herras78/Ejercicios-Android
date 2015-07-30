@@ -1,5 +1,5 @@
-Pera;26072015;26072015;3;1;ic_pera
-Manzana;26072015;26072015;3;1;ic_manzana
-Platano;26072015;26072015;3;1;ic_platano
-Piña;26072015;26072015;3;1;ic_piña
-Naranja;26072015;26072015;3;1;ic_naranja
+Pera;26072015;26072015;1;1;ic_pera
+Manzana;26072015;26072015;1;1;ic_manzana
+Platano;26072015;26072015;1;1;ic_platano
+Piña;26072015;26072015;1;1;ic_piña
+Naranja;26072015;26072015;1;1;ic_naranja

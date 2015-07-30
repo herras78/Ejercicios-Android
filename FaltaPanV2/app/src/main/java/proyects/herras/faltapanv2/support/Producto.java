@@ -7,44 +7,44 @@ import java.util.Date;
  * Created by Herras on 24/07/2015.
  */
 public class Producto {
-    private String nombre; //Define nombre de la lista.
+    private String title; //Define nombre de la lista.
     private String fechaCreacion; //Fecha de creacion.
     private String fechaModificacion; // Fecha ultima modificacion.
-    private int precio; // precio unitario.
-    //private int numElementos; este dato debe definirse a nivel de relacion Producto/Lista
-    //private String estado; // Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A" ;este dato debe definirse a nivel de relacion Producto/Lista
-    private String marca; // marca de producto.
-    private int volumen; // volumen del producto en Litros.
-    private int peso; // peso del producto en Kg.
-    private String familia; // familia a la que pertenece el producto.
-    private String tienda; // Tienda en la que debe realizarse la compra.
-    private int imagen; //R.id de la imagen que se quiere insertar.
+    private int price; // precio unitario.
+    private int cuantity; //numero de productos
+    private String cuantityUnit; //unidad de medida
+    private String status; // Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A" ;este dato debe definirse a nivel de relacion Producto/Lista
+    private String brand; // marca de producto.
+    private String family; // familia a la que pertenece el producto.
+    //private String tienda; // Tienda en la que debe realizarse la compra.
+    //private int imagen; //R.id de la imagen que se quiere insertar.
 
     public Producto(String nombre) {
-        this.nombre = nombre;
+        this.title = nombre;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         this.fechaCreacion = sdf.format(new Date());
     }
 
-    public Producto(String nombre, String fechaCreacion, String fechaModificacion, int precio, String marca, int volumen, int peso,String familia, String tienda, int imagen) {
-        this.nombre = nombre;
+    public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnitunit,String familia) {
+        this.title = nombre;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
-        this.precio = precio;
-        this.marca = marca;
-        this.volumen = volumen;
-        this.peso = peso;
-        this.familia = familia;
-        this.tienda = tienda;
-        this.imagen = imagen;
+        this.status = status;
+        this.price = price;
+        this.brand = marca;
+        this.cuantity = cuantity;
+        this.cuantityUnit = cuantityUnit;
+        this.family = familia;
+       // this.tienda = tienda;
+        //this.imagen = imagen;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getFechaCreacion() {
@@ -63,59 +63,51 @@ public class Producto {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getCuantity() {
+        return cuantity;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setCuantity(int cuantity) {
+        this.cuantity = cuantity;
     }
 
-    public int getVolumen() {
-        return volumen;
+    public String getCuantityUnit() {
+        return cuantityUnit;
     }
 
-    public void setVolumen(int volumen) {
-        this.volumen = volumen;
+    public void setCuantityUnit(String cuantityUnit) {
+        this.cuantityUnit = cuantityUnit;
     }
 
-    public int getPeso() {
-        return peso;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getTienda() {
-        return tienda;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setTienda(String tienda) {
-        this.tienda = tienda;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public String getFamilia() {
-        return familia;
+    public String getFamily() {
+        return family;
     }
 
-    public void setFamilia(String familia) {
-        this.familia = familia;
-    }
-
-    public int getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(int imagen) {
-        this.imagen = imagen;
+    public void setFamily(String family) {
+        this.family = family;
     }
 }

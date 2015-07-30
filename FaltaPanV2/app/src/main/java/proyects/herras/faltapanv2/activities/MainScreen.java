@@ -5,14 +5,12 @@ import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,7 +57,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     public void instanceControls(){
-        addListBtn = (FloatingActionButton)findViewById(R.id.add_btn_lst);
+        addListBtn = (FloatingActionButton)findViewById(R.id.add_list_btn);
         toolbar = (Toolbar)findViewById(R.id.mainscreenbar);
         ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.ctlLayout);
 
@@ -109,11 +107,11 @@ public class MainScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.getId()== R.id.add_btn_lst){
-                Intent i = new Intent(MainScreen.this,AddListCard.class);
-                startActivity(i);
+                if(view.getId()== R.id.add_list_btn){
+                    Intent i = new Intent(MainScreen.this,AddListCard.class);
+                    startActivity(i);
                 }else{
-                    String lista = ((TextView)view.findViewById(R.id.tit_list)).getText().toString();                                               ;
+                    String lista = ((TextView)view.findViewById(R.id.list_tit)).getText().toString();                                               ;
                     Bundle b = new Bundle();
                     b.putString("LISTA",lista);
                     Intent intent = new Intent(MainScreen.this,ProductScreen.class);
