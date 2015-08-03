@@ -233,7 +233,7 @@ public class ContractorTableValues {
         public static final String PARAM_ESTADO_PRODUCTO = "TEXT";
         public static final String PARAM_NUMERO_ELEMENTOS = "DECIMAL(6,5)";
         public static final String PARAM_UNIDAD_MEDIDA = "TEXT";
-        public static final String PARAM_PRECIO = "(6,5)";
+        public static final String PARAM_PRECIO = "DECIMAL(6,5)";
         public static final String PARAM_MARCA = "TEXT";
         public static final String PARAM_ORDEN_PRODUCTO = "INTEGER";
 

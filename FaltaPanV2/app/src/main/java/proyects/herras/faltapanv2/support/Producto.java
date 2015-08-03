@@ -24,7 +24,7 @@ public class Producto {
         this.fechaCreacion = new SimpleDateFormat("yyyyMMdd").format(new Date());
     }
 
-    public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnitunit,String familia) {
+    public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnit,String familia) {
         this.title = nombre;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
