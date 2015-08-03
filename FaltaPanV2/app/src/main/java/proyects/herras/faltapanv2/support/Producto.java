@@ -10,8 +10,8 @@ public class Producto {
     private String title; //Define nombre de la lista.
     private String fechaCreacion; //Fecha de creacion.
     private String fechaModificacion; // Fecha ultima modificacion.
-    private int price; // precio unitario.
-    private int cuantity; //numero de productos
+    private float price; // precio unitario.
+    private float cuantity; //numero de productos
     private String cuantityUnit; //unidad de medida
     private String status; // Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A" ;este dato debe definirse a nivel de relacion Producto/Lista
     private String brand; // marca de producto.
@@ -21,8 +21,7 @@ public class Producto {
 
     public Producto(String nombre) {
         this.title = nombre;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        this.fechaCreacion = sdf.format(new Date());
+        this.fechaCreacion = new SimpleDateFormat("yyyyMMdd").format(new Date());
     }
 
     public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnitunit,String familia) {
@@ -63,7 +62,7 @@ public class Producto {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
@@ -71,7 +70,7 @@ public class Producto {
         this.price = price;
     }
 
-    public int getCuantity() {
+    public float getCuantity() {
         return cuantity;
     }
 

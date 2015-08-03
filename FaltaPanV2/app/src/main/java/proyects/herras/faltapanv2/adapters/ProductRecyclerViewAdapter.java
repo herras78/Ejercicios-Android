@@ -24,7 +24,7 @@ public class ProductRecyclerViewAdapter
     public ProductRecyclerViewAdapter(ArrayList<Producto> datos){this.datos = datos;}
 
     public ProductRecyclerViewHolder onCreateViewHolder(ViewGroup viewgroup, int viewType){
-        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.product_item,viewgroup,false);
+        View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.item_product_card,viewgroup,false);
 
         itemView.setOnClickListener(this);
 

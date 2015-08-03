@@ -118,11 +118,11 @@ public class AddProductCard extends Activity {
             selectedProduct.setProductName(productName.getText().toString());
 
             if(!productCuantity.getText().toString().equals("")){
-                selectedProduct.setCuantity(Integer.parseInt(productCuantity.getText().toString()));
+                selectedProduct.setCuantity(Float.parseFloat(productCuantity.getText().toString()));
             }else{selectedProduct.setCuantity(0);}
 
             if(!productPrice.getText().toString().equals("")){
-                selectedProduct.setPrice(Integer.parseInt(productPrice.getText().toString()));
+                selectedProduct.setPrice(Float.parseFloat(productPrice.getText().toString()));
             }else{selectedProduct.setPrice(0);}
 
             if(!productBrand.getText().toString().equals("")){
@@ -187,9 +187,9 @@ public class AddProductCard extends Activity {
 
     private class SelectedProduct {
         private String productName;
-        private int cuantity;
+        private float cuantity;
         private String cuantityUnit;
-        private int price;
+        private float price;
         private String brand;
         private int id;
 
@@ -227,7 +227,7 @@ public class AddProductCard extends Activity {
             this.id = id;
         }
 
-        public String getNameQuery(){
+        public String getNameQuery(){//Parametrizar
             String query = "SELECT "+ ContractorTableValues.TablaProducto.NOMBRE
                     +","+ContractorTableValues.TablaProducto._ID
                     +" FROM "+ ContractorTableValues.TablaProducto.TABLE_NAME
@@ -274,7 +274,7 @@ public class AddProductCard extends Activity {
             return query;
         }
 
-        public String productAlreadyInListQuery(){
+        public String productAlreadyInListQuery(){//Parametrizar
             String query ="SELECT "
                     +ContractorTableValues.TablaListaProducto.ID_LISTA
                     +","+ContractorTableValues.TablaListaProducto.ID_PRODUCTO
