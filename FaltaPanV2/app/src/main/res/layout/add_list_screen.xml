@@ -26,17 +26,20 @@
                 android:id="@+id/img_new_list"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:src="@drawable/ic_supermercado"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:hint="Nombre de Lista"
                 android:id="@+id/name_new_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="30"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="Nombre de Lista   "
                 android:layout_toRightOf="@+id/img_new_list"
-                android:layout_alignParentTop="true"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,23 +50,31 @@
                 android:layout_below="@+id/name_new_list"
                 android:layout_toRightOf="@+id/img_new_list" />
             <View
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:background="#ffd5d5d5"
                 android:id="@+id/linea1"
+                android:layout_marginRight="10dp"
                 android:layout_below="@+id/lbl_tienda"
                 android:layout_toRightOf="@+id/img_new_list">
             </View>
+
             <Spinner
                 android:id="@+id/shop_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:dropDownWidth="100dp"
+                android:dropDownVerticalOffset="200dp"
+                android:spinnerMode="dialog"
                 android:layout_below="@+id/lbl_tienda"
-                android:layout_toRightOf="@+id/img_new_list"/>
+                android:layout_toRightOf="@+id/img_new_list"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="6dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="CANCELAR"
                 android:id="@+id/new_card_cancel"
@@ -71,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="6dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="ACEPTAR"
                 android:id="@+id/new_card_acept"

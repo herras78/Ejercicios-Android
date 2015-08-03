@@ -86,7 +86,7 @@ public class AddListCard extends Activity {
 
     public void getData(){
         Log.d("FaltaPan", ContractorTableValues.TablaTienda.TABLE_NAME + "," + ContractorTableValues.TablaTienda.getCabeceras().toString());
-        Cursor c = dba.getCursor("SELECT NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,REF_IMAGEN FROM T_TIENDA ORDER BY NOMBRE DESC");
+        Cursor c = dba.getCursor("SELECT NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,REF_IMAGEN FROM T_TIENDA ORDER BY NOMBRE ASC");
         String unsplitList = "";
         String unsplitImg = "";
         if(c.moveToFirst()){

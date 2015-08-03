@@ -11,10 +11,12 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import proyects.herras.faltapanv2.R;
 import proyects.herras.faltapanv2.adapters.ProductRecyclerViewAdapter;
 import proyects.herras.faltapanv2.bbdd.DBAcces;
+import proyects.herras.faltapanv2.sharedpreferences.SPApp;
 import proyects.herras.faltapanv2.support.Producto;
 
 /**
@@ -37,6 +40,8 @@ public class ProductScreen extends AppCompatActivity {
     private DBAcces dba;
     private TextView titList;
     private String listName;
+    private ImageView toolbarImg;
+    private SPApp spApp;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +59,19 @@ public class ProductScreen extends AppCompatActivity {
         ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.ctlProductLayout);
         titList = (TextView)findViewById(R.id.product_screen_tit);
         productRecyclerView = (RecyclerView) findViewById(R.id.product_recycler);
+        toolbarImg = (ImageView)findViewById(R.id.imgProductToolbar);
 
+        spApp = new SPApp(this);
         datos = new ArrayList<Producto>();
         dba = new DBAcces(this);
     }
 
     public void prepareControls() {
         setSupportActionBar(toolbar);
-        listName = ((Bundle)this.getIntent().getExtras()).getString("LISTA");
+        listName = spApp.getListName();
+        toolbarImg.setImageResource(spApp.getListImgRef());
         ctlLayout.setTitle("Productos");
         titList.setText(listName);
-        //Generar recurso
         addProductBtn.setOnClickListener(getOnClickListener(addProductBtn));
 
         prepareRecycler();
@@ -93,13 +100,12 @@ public class ProductScreen extends AppCompatActivity {
                 " ON TLP.ID_LISTA = TL._id\n" +
                 "JOIN T_FAMILIA TF\n" +
                 " ON TF._id = TP.FAMILIA\n" +
-                "Where TL.NOMBRE = '"+ listName +"';";
-        //Cursor c = dba.getCursor(ContractorTableValues.TablaProducto.TABLE_NAME,ContractorTableValues.TablaLista.getCabeceras());
+                "WHERE TL.NOMBRE = '"+ listName +"';";
+
         Cursor c = dba.getCursor(query);
+        Log.d("FaltaPan","Cargando datos de Lista:"+query);
         if(c.moveToFirst()){
             for (int i = 0; i < c.getCount(); i++) {
-                /*Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnitunit,String familia)
-                Cabeceras c: NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,FAMILIA,TIENDA,REF_IMAGEN*/
                 datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getString(8)));
                 if (i < c.getCount()-1) {
                     c.moveToNext();
@@ -121,17 +127,12 @@ public class ProductScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* if(view.getId()== R.id.add_list_btn){
-                    Intent i = new Intent(MainScreen.this,AddListCard.class);
+                if(view.getId()== R.id.add_product_btn){
+                    Intent i = new Intent(ProductScreen.this,AddProductCard.class);
                     startActivity(i);
                 }else{
-                    String lista = ((TextView)view.findViewById(R.id.product_tit)).getText().toString();                                               ;
-                    Bundle b = new Bundle();
-                    b.putString("LISTA",lista);
-                   /* Intent intent = new Intent(MainScreen.this,ProductScreen.class);
-                    intent.putExtras(b);
-                    startActivity(intent);
-                }*/
+                   /* Logica para definir las funciones de clic en los productItems*/
+                }
             }
         };
     }

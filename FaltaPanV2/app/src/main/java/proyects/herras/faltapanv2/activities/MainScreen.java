@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,10 +51,6 @@ public class MainScreen extends AppCompatActivity {
         instanceControls();
         prepareControls();
 
-
-       /* Cursor c = new DBAcces(this).getCursor("SELECT * FROM " + ContractorTableValues.TablaProducto.TABLE_NAME);
-        c.moveToFirst();
-        txtTest.setText(c.getString(1)+","+c.getString(8)+","+c.getString(9));*/
     }
 
     public void instanceControls(){
@@ -107,19 +104,24 @@ public class MainScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i;
                 if(view.getId()== R.id.add_list_btn){
-                    Intent i = new Intent(MainScreen.this,AddListCard.class);
+                    i = new Intent(MainScreen.this,AddListCard.class);
                     startActivity(i);
                 }else{
-                    String lista = ((TextView)view.findViewById(R.id.list_tit)).getText().toString();                                               ;
-                    Bundle b = new Bundle();
-                    b.putString("LISTA",lista);
-                    Intent intent = new Intent(MainScreen.this,ProductScreen.class);
-                    intent.putExtras(b);
-                    startActivity(intent);
+                    keepListSelected(((TextView) view.findViewById(R.id.list_tit)).getText().toString());
+                    i = new Intent(MainScreen.this,ProductScreen.class);
+                    startActivity(i);
                 }
             }
         };
+    }
+
+    public void keepListSelected(String list){
+         Cursor c = dba.getCursor(ContractorTableValues.TablaLista.getQueryListToProductFields(list));
+        c.moveToFirst();
+        SPApp spApp = new SPApp(this);
+        spApp.setSelectedList(c.getString(0), c.getInt(1), c.getInt(2));
     }
 
     public void deployDB(){

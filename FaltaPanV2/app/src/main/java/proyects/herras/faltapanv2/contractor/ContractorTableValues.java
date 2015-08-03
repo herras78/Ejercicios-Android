@@ -88,6 +88,10 @@ public class ContractorTableValues {
 
         }
 
+        public static String getQueryListToProductFields(String lista){
+            return "SELECT "+ NOMBRE +","+ REF_IMAGEN +","+ _ID  +" FROM "+ TABLE_NAME +" WHERE "+ NOMBRE +"='"+ lista +"'";
+        }
+
         public static String getTableName() {
             return TABLE_NAME;
         }
@@ -135,10 +139,10 @@ public class ContractorTableValues {
 
         public static final String NOMBRE = "NOMBRE";
         public static final String FECHA_CREACION = "FECHA_CREACION";
-        public static final String FECHA_MODIFICACION = "FECHA_MODIFICACION";
-        public static final String FAMILIA = "FAMILIA";
-        public static final String TIENDA = "TIENDA";
-        public static final String REF_IMAGEN = "REF_IMAGEN";
+        public static final String FECHA_MODIFICACION = "FECHA_MODIFICACION";//no se usa de momento
+        public static final String FAMILIA = "FAMILIA";//Falta agregar en la UI
+        public static final String TIENDA = "TIENDA";//No se usa nunca
+        public static final String REF_IMAGEN = "REF_IMAGEN";//De momento no se usa
 
         public static final String PARAM_ID = "INTEGER PRIMARY KEY AUTOINCREMENT";
         public static final String PARAM_NOMBRE = "TEXT NOT NULL";

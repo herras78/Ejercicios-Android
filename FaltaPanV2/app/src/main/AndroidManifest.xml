@@ -23,13 +23,20 @@
             android:name=".activities.AddListCard"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/NoTitleDialog" >
+            android:theme="@style/Theme.AppCompat.Dialog" >
         </activity>
 
         <activity
             android:name=".activities.ProductScreen"
             android:noHistory="true"
             android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".activities.AddProductCard"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog">
         </activity>
 
     </application>

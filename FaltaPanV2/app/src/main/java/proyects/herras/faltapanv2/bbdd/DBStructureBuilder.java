@@ -45,7 +45,7 @@ public class DBStructureBuilder {
                 }
             }
         }
-        Log.d("FaltaPan", "DBStructureBulder,Procesando estructura,se genera la query:" + query_crea_tabla );
+       // Log.d("FaltaPan", "DBStructureBulder,Procesando estructura,se genera la query:" + query_crea_tabla );
          return query_crea_tabla;
     }
 

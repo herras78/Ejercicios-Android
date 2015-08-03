@@ -1,3 +1,4 @@
+Generica;27072015;27072015;ic_congelados
 Frutas;27072015;27072015;ic_fruta
 Verduras;27072015;27072015;ic_verdura
 Carnes;27072015;27072015;ic_carne
@@ -10,3 +11,4 @@ Alcohol;27072015;27072015;ic_alcohol
 Panaderia;27072015;27072015;ic_panaderia
 Pasteleria;27072015;27072015;ic_pasteleria
 Congelados;27072015;27072015;ic_congelados
+
