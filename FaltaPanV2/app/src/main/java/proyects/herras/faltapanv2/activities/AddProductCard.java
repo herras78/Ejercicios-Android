@@ -207,7 +207,7 @@ public class AddProductCard extends Activity {
             this.productName = productName;
         }
 
-        public void setCuantity(int cuantity) {
+        public void setCuantity(float cuantity) {
             this.cuantity = cuantity;
         }
 
@@ -215,7 +215,7 @@ public class AddProductCard extends Activity {
             this.cuantityUnit = cuantityUnit;
         }
 
-        public void setPrice(int price) {
+        public void setPrice(float price) {
             this.price = price;
         }
 
