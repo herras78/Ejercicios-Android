@@ -11,4 +11,7 @@ Alcohol;27072015;27072015;ic_alcohol
 Panaderia;27072015;27072015;ic_panaderia
 Pasteleria;27072015;27072015;ic_pasteleria
 Congelados;27072015;27072015;ic_congelados
+Papeleria;27072015;27072015;ic_papeleria
+Ferreteria;27072015;27072015;ic_ferreteria
+Bricolaje;;27072015;27072015;ic_bricolaje
 

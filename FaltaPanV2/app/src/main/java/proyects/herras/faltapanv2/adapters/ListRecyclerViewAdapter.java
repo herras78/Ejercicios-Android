@@ -73,9 +73,14 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         public void bindLista(Lista list){
             imgList.setImageResource(list.getImagen());
             txtTitList.setText(list.getNombre());
-            txtNumProduct.setText(list.getNumElementos()+"/"+list.getNumElementos()+" Productos");
-            txtPercentList.setText(list.getPorcentajeCompletado()+"% Completado");
+            txtNumProduct.setText(list.getNumElementosComprados()+ "/" +list.getNumElementos()+ " Productos");
+            txtPercentList.setText(getPercent(list)+"% Completado");
             txtDate.setText(list.getFechaCreacion());
+        }
+
+        public int getPercent(Lista list){
+            if(list.getNumElementosComprados() == 0) return 0;
+            else return (int)((list.getNumElementosComprados()*100)/ list.getNumElementos());
         }
     }
 }

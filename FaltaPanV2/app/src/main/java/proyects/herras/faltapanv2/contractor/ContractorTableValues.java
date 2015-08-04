@@ -32,7 +32,8 @@ public class ContractorTableValues {
         public static final String FECHA_CREACION = "FECHA_CREACION";
         public static final String FECHA_MODIFICACION = "FECHA_MODIFICACION";
         public static final String FECHA_EJECUCION = "FECHA_EJECUCION";
-        public static final String NUM_ELEMENTOS = "NUM_ELEMENTOS";
+        public static final String NUM_ELEMENTOS = "NUM_ELEMENTOS";//Numero de productos en la lista.
+        public static final String NUM_ELEMENTOS_COMPRADOS = "NUM_ELEMENTOS_COMPRADOS"; //Numero de productos comprados en la lista.
         public static final String NOMBRE_TIENDA = "NOMBRE_TIENDA";
         public static final String ESTADO = "ESTADO";
         public static final String PORCENTAJE_COMPLETADO = "PORCENTAJE_COMPLETADO";
@@ -44,9 +45,10 @@ public class ContractorTableValues {
         public static final String PARAM_FECHA_MODIFICACION = "TEXT";
         public static final String PARAM_FECHA_EJECUCION = "TEXT";
         public static final String PARAM_NUM_ELEMENTOS = "INTEGER";
+        public static final String PARAM_NUM_ELEMENTOS_COMPRADOS = "INTEGER";
         public static final String PARAM_NOMBRE_TIENDA = "TEXT";
         public static final String PARAM_ESTADO = "TEXT";
-        public static final String PARAM_PORCENTAJE_COMPLETADO = "INTEGER";
+        public static final String PARAM_PORCENTAJE_COMPLETADO = "INTEGER";//Precarlcular en el adaptador
         public static final String PARAM_REF_IMAGEN = "INTEGER";
 
         public static final String CONSTRAINT_FK_LISTA_TIENDA = "CONSTRAINT FK_LISTA_TIENDA FOREIGN KEY("+NOMBRE_TIENDA+") REFERENCES T_LISTA("+ TablaTienda._ID +")";
@@ -61,6 +63,7 @@ public class ContractorTableValues {
             hm_estructura.put("FECHA_MODIFICACION", FECHA_MODIFICACION +  " "  + PARAM_FECHA_MODIFICACION);
             hm_estructura.put("FECHA_EJECUCION", FECHA_EJECUCION +  " "  + PARAM_FECHA_EJECUCION);
             hm_estructura.put("NUM_ELEMENTOS", NUM_ELEMENTOS +  " " + PARAM_NUM_ELEMENTOS);
+            hm_estructura.put("NUM_ELEMENTOS_COMPRADOS", NUM_ELEMENTOS_COMPRADOS +  " " + PARAM_NUM_ELEMENTOS_COMPRADOS);
             hm_estructura.put("NOMBRE_TIENDA", NOMBRE_TIENDA + " " + PARAM_NOMBRE_TIENDA);
             hm_estructura.put("ESTADO", ESTADO + " " + PARAM_ESTADO);
             hm_estructura.put("PORCENTAJE_COMPLETADO", PORCENTAJE_COMPLETADO + " " + PARAM_PORCENTAJE_COMPLETADO);
@@ -78,6 +81,7 @@ public class ContractorTableValues {
                     FECHA_MODIFICACION,
                     FECHA_EJECUCION,
                     NUM_ELEMENTOS,
+                    NUM_ELEMENTOS_COMPRADOS,
                     NOMBRE_TIENDA,
                     ESTADO,
                     PORCENTAJE_COMPLETADO,
@@ -224,8 +228,8 @@ public class ContractorTableValues {
         public static final String ID_PRODUCTO = "ID_PRODUCTO";
 
         public static final String ESTADO_PRODUCTO = "ESTADO_PRODUCTO"; // Estado del producto Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A"
-        public static final String NUMERO_ELEMENTOS = "NUMERO_ELEMENTOS"; //Numero de productos en la lista.
-        public static final String UNIDAD_MEDIDA = "UNIDAD_MEDIDA"; //Unidad de medida que usa el producto(kg,gr,l,cl,bolsa,lata,botella,pack)
+        public static final String NUMERO_ELEMENTOS = "NUMERO_ELEMENTOS"; //este dato esta en T_Lista
+         public static final String UNIDAD_MEDIDA = "UNIDAD_MEDIDA"; //Unidad de medida que usa el producto(kg,gr,l,cl,bolsa,lata,botella,pack)
         public static final String PRECIO = "PRECIO";//Precio del producto en el momento de la compra.
         public static final String MARCA = "MARCA";
         public static final String ORDEN_PRODUCTO = "ORDEN_PRODUCTO";//Indica el orden del producto dentro de la lista.

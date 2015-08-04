@@ -37,6 +37,7 @@ public class AddProductCard extends Activity {
     private DBAcces dba;
 
     private SelectedProduct selectedProduct;
+    private  ActualList actualList;
 
     private static String[] UNITYS = new String[]{
             //Genera recurso y ordenalo alfabeticamente....
@@ -68,6 +69,7 @@ public class AddProductCard extends Activity {
         productCuantity = (EditText)findViewById(R.id.edit_cuantity);
 
         selectedProduct = new SelectedProduct("",0,"",0,"",0);
+        actualList = new ActualList();
 
         aceptar = (TextView)findViewById(R.id.new_product_acept);
         cancelar = (TextView)findViewById(R.id.new_product_cancel);
@@ -98,10 +100,12 @@ public class AddProductCard extends Activity {
     public void insertProductLogic(){
        if(keepInsertedProduct()){
            CreateProductIfNotExist();//inserta el producto en la tabla producto si no existe.
-           if(productAlreadyInList()){//verificar si el producto esta ya en la lista, si no  esta lo inserta  y lo actualiza si lo esta.
+           if(productAlreadyInList()){//verificar si el producto esta ya en la lista, si no  esta lo inserta, si lo esta lo actualiza.
                dba.updateDate(selectedProduct.updateProductInDBQuery());
            } else {
                dba.insertData(selectedProduct.insertProductInDBQuery());
+               //contar elementos de la lista y actualizar nuemero de elementos de la lista
+               actualList.setListSize(actualList.getListSize());
            }
            Salir();
        };
@@ -183,6 +187,57 @@ public class AddProductCard extends Activity {
     public void Salir(){
         Intent intent = new Intent(AddProductCard.this, ProductScreen.class);
         startActivity(intent);
+    }
+
+    private class ActualList {
+
+        //Se debe agregar un campo mas a las listas de forma que recoja numero total de elementos y elementos comprados
+        //por lo que ademas de getListSize
+
+        public int getListSize(){
+            String query = "SELECT COUNT("+ContractorTableValues.TablaListaProducto.ID_LISTA
+                    +") FROM "+ContractorTableValues.TablaListaProducto.TABLE_NAME
+                    +" WHERE "+ContractorTableValues.TablaListaProducto.ID_LISTA
+                    +"="+spApp.getListID()+";";
+
+            Cursor c = dba.getCursor(query);
+            c.moveToFirst();
+
+            return c.getInt(0);
+        }
+
+        public int getListBuyedSize(){
+            String query = "SELECT COUNT("+ ContractorTableValues.TablaListaProducto.ID_LISTA
+                    +") FROM "+ ContractorTableValues.TablaListaProducto.TABLE_NAME
+                    +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
+                    +"="+spApp.getListID()
+                    +" AND "+ ContractorTableValues.TablaListaProducto.ESTADO_PRODUCTO
+                    +"= 'C'";
+
+            Cursor c = dba.getCursor(query);
+            c.moveToFirst();
+
+            return c.getInt(0);
+        }
+
+
+        public void setListSize(int size){
+            String query = "UPDATE "+ ContractorTableValues.TablaLista.TABLE_NAME
+                    +" SET "+ ContractorTableValues.TablaLista.NUM_ELEMENTOS
+                    +"="+ size
+                    +" WHERE "+ ContractorTableValues.TablaLista._ID
+                    +"="+ spApp.getListID();
+            dba.updateDate(query);
+        }
+
+        public void setListBuyedSize(int size){
+            String query = "UPDATE "+ ContractorTableValues.TablaLista.TABLE_NAME
+                    +" SET "+ ContractorTableValues.TablaLista.NUM_ELEMENTOS_COMPRADOS
+                    +"="+ size
+                    +" WHERE "+ ContractorTableValues.TablaLista._ID
+                    +"="+ spApp.getListID();
+            dba.updateDate(query);
+        }
     }
 
     private class SelectedProduct {

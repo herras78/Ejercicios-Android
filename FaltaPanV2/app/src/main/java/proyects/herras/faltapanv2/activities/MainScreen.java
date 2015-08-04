@@ -89,9 +89,9 @@ public class MainScreen extends AppCompatActivity {
         Cursor c = dba.getCursor(ContractorTableValues.TablaLista.TABLE_NAME,ContractorTableValues.TablaLista.getCabeceras());
         if(c.moveToFirst()){
             for (int i = 0; i < c.getCount(); i++) {
-                /*Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,String tienda, String estado,int porcentajeCompletado,int imagen)
-                Cabeceras c: NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EJECUCION,NUM_ELEMENTOS,NOMBRE_TIENDA,ESTADO,PORCENTAJE_COMPLETADO,REF_IMAGEN*/
-                datos.add(new Lista(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getString(6),c.getInt(7),c.getInt(8)));
+                /*Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen)
+                Cabeceras c: NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EJECUCION,NUM_ELEMENTOS,NUM_ELEMENTOSCOMPRADOS,NOMBRE_TIENDA,ESTADO,PORCENTAJE_COMPLETADO,REF_IMAGEN*/
+                datos.add(new Lista(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getInt(5),c.getString(6),c.getString(7),c.getInt(8),c.getInt(9)));
                 if (i < c.getCount()-1) {
                     c.moveToNext();
                 }

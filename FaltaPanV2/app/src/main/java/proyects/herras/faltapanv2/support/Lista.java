@@ -9,20 +9,22 @@ public class Lista {
     private String fechaModificacion; // Fecha ultima modificacion
     private String fechaEjecucion; // Fecha para realizar la compra.
     private int numElementos; // numero de elementos que contiene la lista.
+    private int numElementosComprados; // numero de elementos que contiene la lista.
     private String tienda; // Tienda en la que debe realizarse la compra.
     private String estado; // En curso "R", Terminada "T" , Pendiente "P" , Inactiva "I" , Eliminada "E"
     private int porcentajeCompletado; //En caso de que la compra no este completada, indica el porcentaje completado.
     private int imagen; //R.id de la imagen que se quiere insertar.
 
-    public Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,String tienda, String estado,int porcentajeCompletado,int imagen){
+    public Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen){
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
         this.fechaEjecucion = fechaEjecucion;
         this.numElementos = numElementos;
+        this.numElementosComprados = numElementosComprados;
         this.tienda = tienda;
         this.estado = estado;
-        this.porcentajeCompletado = porcentajeCompletado;
+        this.porcentajeCompletado = porcentajeCompletado;//Este dato se precalcuara en el adaptador.
         this.imagen = imagen;
     }
 
@@ -64,6 +66,14 @@ public class Lista {
 
     public void setNumElementos(int numElementos) {
         this.numElementos = numElementos;
+    }
+
+    public int getNumElementosComprados() {
+        return numElementosComprados;
+    }
+
+    public void setNumElementosComprados(int numElementosComprados) {
+        this.numElementosComprados = numElementosComprados;
     }
 
     public String getTienda() {
