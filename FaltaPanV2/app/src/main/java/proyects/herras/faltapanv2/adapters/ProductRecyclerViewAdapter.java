@@ -1,10 +1,13 @@
 package proyects.herras.faltapanv2.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -59,7 +62,12 @@ public class ProductRecyclerViewAdapter
         private TextView productCuantity;
         private TextView productCuantityUnit;
         private TextView productBrand;
-        private CardView cardView;
+        private TextView productPrice;
+        private TextView productId;
+        private View line;
+        private RelativeLayout cardView;
+        private Context context;
+        ArrayList<TextView> textViews;
 
         public ProductRecyclerViewHolder(View itemView){
             super(itemView);
@@ -70,7 +78,21 @@ public class ProductRecyclerViewAdapter
             productCuantity = (TextView)itemView.findViewById(R.id.product_cuantity);
             productCuantityUnit = (TextView)itemView.findViewById(R.id.product_cuantity_unit);
             productBrand = (TextView)itemView.findViewById(R.id.product_brand);
-            cardView = (CardView)itemView.findViewById(R.id.product_item_card);
+            productPrice = (TextView)itemView.findViewById(R.id.product_price);
+            productId = (TextView)itemView.findViewById(R.id.product_id);
+            line = (View)itemView.findViewById(R.id.product_line);
+            cardView = (RelativeLayout)itemView.findViewById(R.id.product_item_card);
+            context = itemView.getContext();
+
+            textViews = new ArrayList<TextView>();
+            textViews.add(productTit);
+            textViews.add(productDate);
+            textViews.add(productFamily);
+            textViews.add(productStatus);
+            textViews.add(productCuantity);
+            textViews.add(productCuantityUnit);
+            textViews.add(productBrand);
+            textViews.add(productPrice);
          }
 
         public void bindProduct(Producto product){
@@ -81,17 +103,28 @@ public class ProductRecyclerViewAdapter
             productCuantity.setText(product.getCuantity() + "");
             productCuantityUnit.setText(product.getCuantityUnit());
             productBrand.setText(product.getBrand());
+            productId.setText(product.getProductId()+"");
+            productPrice.setText(product.getPrice() + "€/u");//Parametrizar €
             setStatusColor(product.getStatus());
         }
 
         public void setStatusColor(String status){
             // Estado del producto Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A"
-            switch (status){
+            Log.d("FaltaPan", "El estatus es " +status);
+            switch (status.trim()){
                 case "P":
-                    cardView.setCardBackgroundColor(R.color.color_status_backgroud_p);
+                    cardView.setBackgroundColor(context.getResources().getColor(R.color.color_status_backgroud_p));
+                    for(TextView tv:textViews){
+                        tv.setTextColor(context.getResources().getColor(R.color.color_status_text_p));
+                    }
+                    line.setBackgroundColor(context.getResources().getColor(R.color.color_status_text_p));
                     break;
                 case "C":
-                    cardView.setCardBackgroundColor(R.color.color_status_backgroud_c);
+                    cardView.setBackgroundColor(context.getResources().getColor(R.color.color_status_backgroud_c));
+                    for(TextView tv:textViews){
+                        tv.setTextColor(context.getResources().getColor(R.color.color_status_text_c));
+                    }
+                    line.setBackgroundColor(context.getResources().getColor(R.color.color_status_text_c));
                     break;
                 case "S":
                     break;

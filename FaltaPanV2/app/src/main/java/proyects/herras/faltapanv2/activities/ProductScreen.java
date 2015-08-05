@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import proyects.herras.faltapanv2.R;
 import proyects.herras.faltapanv2.adapters.ProductRecyclerViewAdapter;
 import proyects.herras.faltapanv2.bbdd.DBAcces;
+import proyects.herras.faltapanv2.contractor.ContractorTableValues;
 import proyects.herras.faltapanv2.sharedpreferences.SPApp;
 import proyects.herras.faltapanv2.support.Producto;
 
@@ -92,7 +93,8 @@ public class ProductScreen extends AppCompatActivity {
 
     public void getData(){
         datos.clear();
-        String query = "SELECT TP.NOMBRE,TP.FECHA_CREACION,TP.FECHA_CREACION FEC_MODIFICACION,TLP.ESTADO_PRODUCTO ,TLP.PRECIO,TLP.MARCA,TLP.NUMERO_ELEMENTOS,TLP.UNIDAD_MEDIDA,TPL.ID_LISTA,TPL.ID_PRODUCTO,TF.NOMBRE FAMILIA\n" +
+        //Parametrizar la query y sacala de aqui.
+        String query = "SELECT TP.NOMBRE,TP.FECHA_CREACION,TP.FECHA_CREACION FEC_MODIFICACION,TLP.ESTADO_PRODUCTO ,TLP.PRECIO,TLP.MARCA,TLP.NUMERO_ELEMENTOS,TLP.UNIDAD_MEDIDA,TLP.ID_LISTA,TLP.ID_PRODUCTO,TF.NOMBRE FAMILIA\n" +
                 " FROM T_PRODUCTO TP\n" +
                 "JOIN T_A_LISTA_PRODUCTO TLP\n" +
                 " ON TLP.ID_PRODUCTO = TP._id\n" +
@@ -103,7 +105,7 @@ public class ProductScreen extends AppCompatActivity {
                 "WHERE TL.NOMBRE = '"+ listName +"';";
 
         Cursor c = dba.getCursor(query);
-        Log.d("FaltaPan","Cargando datos de Lista:"+query);
+       // Log.d("FaltaPan", "Cargando datos de Lista:" + query);
         if(c.moveToFirst()){
             for (int i = 0; i < c.getCount(); i++) {
                 datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getInt(8),c.getInt(9),c.getString(10)));
@@ -127,15 +129,56 @@ public class ProductScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.getId()== R.id.add_product_btn){
-                    Intent i = new Intent(ProductScreen.this,AddProductCard.class);
+                if (view.getId() == R.id.add_product_btn) {
+                    Intent i = new Intent(ProductScreen.this, AddProductCard.class);
                     startActivity(i);
-                }else{
+                } else {
                    /* Logica para definir las funciones de clic en los productItems*/
-                    ((TextView) view.findViewById(R.id.product_tit)).getText().toString();
+                    int prodId = Integer.parseInt(((TextView) view.findViewById(R.id.product_id)).getText().toString());
+                    int position = 0;
+                    //Es necesario controlar la posicion del producto.
+                    switch (getProductStatus(view,prodId)) {
+                        case "P":
+                            setProductStatus("C", prodId, position);
+                            break;
+                        case "C":
+                            setProductStatus("P", prodId,position);
+                            break;
+                        case "S":
+                        case "D":
+                        case "A":
+                            break;
+                    }
                 }
             }
         };
+    }
+
+    public String getProductStatus(View view,int prodId){
+        String query = "SELECT "+ ContractorTableValues.TablaListaProducto.ESTADO_PRODUCTO
+                +" FROM "+ ContractorTableValues.TablaListaProducto.TABLE_NAME
+                +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
+                +"="+ spApp.getListID()
+                +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
+                +"="+ prodId +";";
+
+        Cursor c = dba.getCursor(query);
+        c.moveToFirst();
+
+        return c.getString(0);
+    }
+
+    public void setProductStatus(String newStatus,int prodId, int position){
+        String query = "UPDATE "+ ContractorTableValues.TablaListaProducto.TABLE_NAME
+                +" SET "+ ContractorTableValues.TablaListaProducto.ESTADO_PRODUCTO
+                +"='"+ newStatus +"'"
+                +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
+                +"="+ spApp.getListID()
+                +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
+                +"="+ prodId +";";
+        dba.updateDate(query);
+        getData();
+        productRecyclerViewAdapter.notifyItemChanged(position);
     }
 
     public void back(){
