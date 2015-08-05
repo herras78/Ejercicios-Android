@@ -92,7 +92,7 @@ public class ProductScreen extends AppCompatActivity {
 
     public void getData(){
         datos.clear();
-        String query = "SELECT TP.NOMBRE,TP.FECHA_CREACION,TP.FECHA_CREACION FEC_MODIFICACION,TLP.ESTADO_PRODUCTO ,TLP.PRECIO,TLP.MARCA,TLP.NUMERO_ELEMENTOS,TLP.UNIDAD_MEDIDA,TF.NOMBRE FAMILIA\n" +
+        String query = "SELECT TP.NOMBRE,TP.FECHA_CREACION,TP.FECHA_CREACION FEC_MODIFICACION,TLP.ESTADO_PRODUCTO ,TLP.PRECIO,TLP.MARCA,TLP.NUMERO_ELEMENTOS,TLP.UNIDAD_MEDIDA,TPL.ID_LISTA,TPL.ID_PRODUCTO,TF.NOMBRE FAMILIA\n" +
                 " FROM T_PRODUCTO TP\n" +
                 "JOIN T_A_LISTA_PRODUCTO TLP\n" +
                 " ON TLP.ID_PRODUCTO = TP._id\n" +
@@ -106,7 +106,7 @@ public class ProductScreen extends AppCompatActivity {
         Log.d("FaltaPan","Cargando datos de Lista:"+query);
         if(c.moveToFirst()){
             for (int i = 0; i < c.getCount(); i++) {
-                datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getString(8)));
+                datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getInt(8),c.getInt(9),c.getString(10)));
                 if (i < c.getCount()-1) {
                     c.moveToNext();
                 }
@@ -132,6 +132,7 @@ public class ProductScreen extends AppCompatActivity {
                     startActivity(i);
                 }else{
                    /* Logica para definir las funciones de clic en los productItems*/
+                    ((TextView) view.findViewById(R.id.product_tit)).getText().toString();
                 }
             }
         };

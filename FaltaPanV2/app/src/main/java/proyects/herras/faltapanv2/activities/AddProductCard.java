@@ -295,6 +295,7 @@ public class AddProductCard extends Activity {
             String query = "INSERT INTO "+ ContractorTableValues.TablaListaProducto.TABLE_NAME
                     +"("+ContractorTableValues.TablaListaProducto.ID_LISTA
                     +","+ContractorTableValues.TablaListaProducto.ID_PRODUCTO
+                    +","+ContractorTableValues.TablaListaProducto.ESTADO_PRODUCTO
                     +","+ContractorTableValues.TablaListaProducto.NUMERO_ELEMENTOS
                     +","+ContractorTableValues.TablaListaProducto.UNIDAD_MEDIDA
                     +","+ContractorTableValues.TablaListaProducto.PRECIO
@@ -302,6 +303,7 @@ public class AddProductCard extends Activity {
                     +") VALUES "
                     +"("+spApp.getListID()
                     +","+ selectedProduct.id
+                    +",'P'"
                     +","+ selectedProduct.cuantity
                     +",'"+ selectedProduct.cuantityUnit +"'"
                     +","+ selectedProduct.price
@@ -325,7 +327,7 @@ public class AddProductCard extends Activity {
                     +"="+ spApp.getListID()
                     +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
                     +"="+ selectedProduct.id +";)";
-            Log.d("FaltaPan","Actualizando producto en TablaFamiliaProducto:"+query);
+            //Log.d("FaltaPan","Actualizando producto en TablaFamiliaProducto:"+query);
             return query;
         }
 

@@ -16,6 +16,8 @@ public class Producto {
     private String status; // Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A" ;este dato debe definirse a nivel de relacion Producto/Lista
     private String brand; // marca de producto.
     private String family; // familia a la que pertenece el producto.
+    private int listId;
+    private int productId;
     //private String tienda; // Tienda en la que debe realizarse la compra.
     //private int imagen; //R.id de la imagen que se quiere insertar.
 
@@ -24,7 +26,7 @@ public class Producto {
         this.fechaCreacion = new SimpleDateFormat("yyyyMMdd").format(new Date());
     }
 
-    public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnit,String familia) {
+    public Producto(String nombre, String fechaCreacion, String fechaModificacion,String status, int price,String marca, int cuantity,String cuantityUnit,int listId,int productId,String familia) {
         this.title = nombre;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
@@ -33,6 +35,8 @@ public class Producto {
         this.brand = marca;
         this.cuantity = cuantity;
         this.cuantityUnit = cuantityUnit;
+        this.listId = listId;
+        this.productId = productId;
         this.family = familia;
        // this.tienda = tienda;
         //this.imagen = imagen;
@@ -108,5 +112,27 @@ public class Producto {
 
     public void setFamily(String family) {
         this.family = family;
+    }
+
+    public int getListId() {return listId;}
+
+    public void setListId(int listId) {
+        this.listId = listId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productID) {
+        this.productId = productId;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setCuantity(float cuantity) {
+        this.cuantity = cuantity;
     }
 }

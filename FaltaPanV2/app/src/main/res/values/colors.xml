@@ -4,4 +4,9 @@
     <color name="color_primary_dark">#303F9F</color>
     <color name="color_accent">#FF4081</color>
     <color name="color_title">#222222</color>
+    <color name="color_status_backgroud_p">#555555</color>
+    <color name="color_status_backgroud_c">#B8DC3C</color>
+    <color name="color_status_backgroud_s">#555555</color>
+    <color name="color_status_backgroud_d">#555555</color>
+    <color name="color_status_backgroud_a">#555555</color>
 </resources>

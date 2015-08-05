@@ -1,5 +1,6 @@
 package proyects.herras.faltapanv2.adapters;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class ProductRecyclerViewAdapter
 
     public void onBindViewHolder(ProductRecyclerViewHolder viewHolder, int pos){
         Producto item = datos.get(pos);
-        viewHolder.bindLista(item);
+        viewHolder.bindProduct(item);
     }
 
     public int getItemCount() {
@@ -58,6 +59,7 @@ public class ProductRecyclerViewAdapter
         private TextView productCuantity;
         private TextView productCuantityUnit;
         private TextView productBrand;
+        private CardView cardView;
 
         public ProductRecyclerViewHolder(View itemView){
             super(itemView);
@@ -68,9 +70,10 @@ public class ProductRecyclerViewAdapter
             productCuantity = (TextView)itemView.findViewById(R.id.product_cuantity);
             productCuantityUnit = (TextView)itemView.findViewById(R.id.product_cuantity_unit);
             productBrand = (TextView)itemView.findViewById(R.id.product_brand);
+            cardView = (CardView)itemView.findViewById(R.id.product_item_card);
          }
 
-        public void bindLista(Producto product){
+        public void bindProduct(Producto product){
             productTit.setText(product.getTitle());
             productDate.setText(product.getFechaCreacion());
             productFamily.setText(product.getFamily());
@@ -78,6 +81,25 @@ public class ProductRecyclerViewAdapter
             productCuantity.setText(product.getCuantity() + "");
             productCuantityUnit.setText(product.getCuantityUnit());
             productBrand.setText(product.getBrand());
+            setStatusColor(product.getStatus());
+        }
+
+        public void setStatusColor(String status){
+            // Estado del producto Pendiente"P", Comprado"C",Subrayado"S",Descartado"D",Agotado"A"
+            switch (status){
+                case "P":
+                    cardView.setCardBackgroundColor(R.color.color_status_backgroud_p);
+                    break;
+                case "C":
+                    cardView.setCardBackgroundColor(R.color.color_status_backgroud_c);
+                    break;
+                case "S":
+                    break;
+                case "D":
+                    break;
+                case "A":
+                    break;
+            }
         }
     }
 }
