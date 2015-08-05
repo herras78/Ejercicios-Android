@@ -104,14 +104,14 @@ public class MainScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i;
+
                 if(view.getId()== R.id.add_list_btn){
-                    i = new Intent(MainScreen.this,AddListCard.class);
-                    startActivity(i);
+                    startActivity(new Intent(MainScreen.this,AddListCard.class));
+                    overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 }else{
                     keepListSelected(((TextView) view.findViewById(R.id.list_tit)).getText().toString());
-                    i = new Intent(MainScreen.this,ProductScreen.class);
-                    startActivity(i);
+                    startActivity(new Intent(MainScreen.this, ProductScreen.class));
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 }
             }
         };

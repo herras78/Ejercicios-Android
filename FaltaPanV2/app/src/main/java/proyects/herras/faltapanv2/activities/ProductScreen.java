@@ -130,12 +130,12 @@ public class ProductScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.add_product_btn) {
-                    Intent i = new Intent(ProductScreen.this, AddProductCard.class);
-                    startActivity(i);
+                    startActivity(new Intent(ProductScreen.this, AddProductCard.class));
+                    overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 } else {
                    /* Logica para definir las funciones de clic en los productItems*/
                     int prodId = Integer.parseInt(((TextView) view.findViewById(R.id.product_id)).getText().toString());
-                    int position = 0;
+                    int position = Integer.parseInt(((TextView) view.findViewById(R.id.product_position)).getText().toString());;
                     //Es necesario controlar la posicion del producto.
                     switch (getProductStatus(view,prodId)) {
                         case "P":
@@ -182,8 +182,8 @@ public class ProductScreen extends AppCompatActivity {
     }
 
     public void back(){
-        Intent intent = new Intent(ProductScreen.this,MainScreen.class);
-        startActivity(intent);
+        startActivity(new Intent(ProductScreen.this,MainScreen.class));
+        overridePendingTransition(R.anim.right_in, R.anim.right_out);
     }
 
     @Override

@@ -144,7 +144,7 @@ public class AddListCard extends Activity {
     }
 
     public void Salir(){
-        Intent intent = new Intent(AddListCard.this, MainScreen.class);
-        startActivity(intent);
+        startActivity(new Intent(AddListCard.this, MainScreen.class));
+        overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
 }

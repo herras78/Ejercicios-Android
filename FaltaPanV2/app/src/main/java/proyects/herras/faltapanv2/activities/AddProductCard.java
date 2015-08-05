@@ -185,14 +185,11 @@ public class AddProductCard extends Activity {
     }
 
     public void Salir(){
-        Intent intent = new Intent(AddProductCard.this, ProductScreen.class);
-        startActivity(intent);
+        startActivity(new Intent(AddProductCard.this, ProductScreen.class));
+        overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
 
     private class ActualList {
-
-        //Se debe agregar un campo mas a las listas de forma que recoja numero total de elementos y elementos comprados
-        //por lo que ademas de getListSize
 
         public int getListSize(){
             String query = "SELECT COUNT("+ContractorTableValues.TablaListaProducto.ID_LISTA

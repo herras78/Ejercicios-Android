@@ -47,7 +47,8 @@ public class ProductRecyclerViewAdapter
 
     public void onBindViewHolder(ProductRecyclerViewHolder viewHolder, int pos){
         Producto item = datos.get(pos);
-        viewHolder.bindProduct(item);
+        viewHolder.bindProduct(item,pos);
+
     }
 
     public int getItemCount() {
@@ -64,6 +65,7 @@ public class ProductRecyclerViewAdapter
         private TextView productBrand;
         private TextView productPrice;
         private TextView productId;
+        private TextView productPosotion;
         private View line;
         private RelativeLayout cardView;
         private Context context;
@@ -80,7 +82,9 @@ public class ProductRecyclerViewAdapter
             productBrand = (TextView)itemView.findViewById(R.id.product_brand);
             productPrice = (TextView)itemView.findViewById(R.id.product_price);
             productId = (TextView)itemView.findViewById(R.id.product_id);
+            productPosotion =(TextView)itemView.findViewById(R.id.product_position);
             line = (View)itemView.findViewById(R.id.product_line);
+
             cardView = (RelativeLayout)itemView.findViewById(R.id.product_item_card);
             context = itemView.getContext();
 
@@ -95,7 +99,7 @@ public class ProductRecyclerViewAdapter
             textViews.add(productPrice);
          }
 
-        public void bindProduct(Producto product){
+        public void bindProduct(Producto product,int position){
             productTit.setText(product.getTitle());
             productDate.setText(product.getFechaCreacion());
             productFamily.setText(product.getFamily());
@@ -105,6 +109,7 @@ public class ProductRecyclerViewAdapter
             productBrand.setText(product.getBrand());
             productId.setText(product.getProductId()+"");
             productPrice.setText(product.getPrice() + "€/u");//Parametrizar €
+            productPosotion.setText(position+"");
             setStatusColor(product.getStatus());
         }
 
