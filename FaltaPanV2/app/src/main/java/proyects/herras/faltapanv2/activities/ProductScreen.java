@@ -26,6 +26,7 @@ import proyects.herras.faltapanv2.adapters.ProductRecyclerViewAdapter;
 import proyects.herras.faltapanv2.bbdd.DBAcces;
 import proyects.herras.faltapanv2.contractor.ContractorTableValues;
 import proyects.herras.faltapanv2.sharedpreferences.SPApp;
+import proyects.herras.faltapanv2.support.ListTools;
 import proyects.herras.faltapanv2.support.Producto;
 
 /**
@@ -42,6 +43,7 @@ public class ProductScreen extends AppCompatActivity {
     private TextView titList;
     private String listName;
     private ImageView toolbarImg;
+    private ImageView backBtn;
     private SPApp spApp;
 
 
@@ -61,6 +63,7 @@ public class ProductScreen extends AppCompatActivity {
         titList = (TextView)findViewById(R.id.product_screen_tit);
         productRecyclerView = (RecyclerView) findViewById(R.id.product_recycler);
         toolbarImg = (ImageView)findViewById(R.id.imgProductToolbar);
+        /*backBtn = (ImageView)findViewById(R.id.product_back_btn);*/
 
         spApp = new SPApp(this);
         datos = new ArrayList<Producto>();
@@ -132,17 +135,20 @@ public class ProductScreen extends AppCompatActivity {
                 if (view.getId() == R.id.add_product_btn) {
                     startActivity(new Intent(ProductScreen.this, AddProductCard.class));
                     overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
-                } else {
-                   /* Logica para definir las funciones de clic en los productItems*/
+                }/*else if(view.getId() == R.id.product_back_btn){
+                    back();
+                } */else {
                     int prodId = Integer.parseInt(((TextView) view.findViewById(R.id.product_id)).getText().toString());
-                    int position = Integer.parseInt(((TextView) view.findViewById(R.id.product_position)).getText().toString());;
-                    //Es necesario controlar la posicion del producto.
-                    switch (getProductStatus(view,prodId)) {
+                    int position = Integer.parseInt(((TextView) view.findViewById(R.id.product_position)).getText().toString());
+
+                    switch (getProductStatus(view, prodId)) {
                         case "P":
                             setProductStatus("C", prodId, position);
+                            new ListTools().setListBuyedSize(dba, spApp.getListID(), new ListTools().getListBuyedSize(dba, spApp.getListID()));
                             break;
                         case "C":
-                            setProductStatus("P", prodId,position);
+                            setProductStatus("P", prodId, position);
+                            new ListTools().setListBuyedSize(dba, spApp.getListID(), new ListTools().getListBuyedSize(dba, spApp.getListID()));
                             break;
                         case "S":
                         case "D":

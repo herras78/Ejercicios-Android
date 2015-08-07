@@ -73,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_fab_icon"
+        app:backgroundTint="@color/material_blue_grey_800"
         app:borderWidth="0dp"
         app:layout_anchor="@id/appbarProductLayout"
         app:layout_anchorGravity="bottom|right|end"/>
