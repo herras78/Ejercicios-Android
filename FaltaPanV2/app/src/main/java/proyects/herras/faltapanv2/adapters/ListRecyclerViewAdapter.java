@@ -15,10 +15,11 @@ import proyects.herras.faltapanv2.support.Lista;
 /**
  * Created by Herras on 27/07/2015.
  */
-public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerViewAdapter.ListaRecyclerViewHolder>implements View.OnClickListener{
+public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerViewAdapter.ListaRecyclerViewHolder>implements View.OnClickListener,View.OnLongClickListener{
 
     private ArrayList<Lista> datos;
     private View.OnClickListener listener;
+    private View.OnLongClickListener longListener;
 
     public ListRecyclerViewAdapter(ArrayList<Lista> datos){
         this.datos = datos;
@@ -28,6 +29,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.item_list_card,viewgroup,false);
 
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
         //itemView.findViewById(R.id.listItem);
 
         ListaRecyclerViewHolder rvh = new ListaRecyclerViewHolder(itemView);
@@ -38,9 +40,19 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         this.listener = listener;
     }
 
+    public void setOnLongClickListener(View.OnLongClickListener listener){
+        this.longListener = listener;
+    }
+
     public void onClick(View view) {
         if(listener != null)
             listener.onClick(view);
+    }
+
+    public boolean onLongClick(View view) {
+        if(longListener != null)
+            longListener.onLongClick(view);
+        return false;
     }
 
     public void onBindViewHolder(ListaRecyclerViewHolder viewHolder, int pos){

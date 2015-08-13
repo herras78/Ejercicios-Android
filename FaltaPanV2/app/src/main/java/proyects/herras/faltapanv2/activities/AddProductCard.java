@@ -1,17 +1,22 @@
 package proyects.herras.faltapanv2.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -22,6 +27,7 @@ import proyects.herras.faltapanv2.R;
 import proyects.herras.faltapanv2.bbdd.DBAcces;
 import proyects.herras.faltapanv2.contractor.ContractorTableValues;
 import proyects.herras.faltapanv2.sharedpreferences.SPApp;
+import proyects.herras.faltapanv2.support.ListTools;
 
 public class AddProductCard extends Activity {
 
@@ -32,25 +38,47 @@ public class AddProductCard extends Activity {
     private TextView aceptar;
     private TextView cancelar;
     private Spinner spinnerCuantityUnit;
+    private Spinner spinnerFamily;
 
     private SPApp spApp;
     private DBAcces dba;
 
     private SelectedProduct selectedProduct;
-    private  ActualList actualList;
+    private ListTools actualList;
 
     private static String[] UNITYS = new String[]{
             //Genera recurso y ordenalo alfabeticamente....
+            "Unidad",
+            "Bolsa",
+            "Botella",
+            "Docena",
             "Latas",
-            "Botellas",
-            "Bolsas",
             "Pack",
-            "Unidades",
-            "Kilos",
-            "Gramos",
-            "Litros",
-            "Centilitros",
-            "Mililitros"
+            "Kilos Kg",
+            "Gramos gr",
+            "Litros L",
+            "Centilitros cl",
+            "Mililitros ml"
+    };
+
+    private static String[] FAMILY = new String[]{
+            //Genera recurso y ordenalo alfabeticamente....
+            "Generica",
+            "Frutas",
+            "Verduras",
+            "Carnes",
+            "Pescado",
+            "Lacteos",
+            "Congelados",
+            "Desayuno",
+            "Panaderia",
+            "Pasteleria",
+            "Especias",
+            "Refrescos",
+            "Alcohol",
+            "Papeleria",
+            "Ferreteria",
+            "Bricolaje"
     };
 
     @Override
@@ -68,8 +96,8 @@ public class AddProductCard extends Activity {
         productBrand = (EditText)findViewById(R.id.edit_brand);
         productCuantity = (EditText)findViewById(R.id.edit_cuantity);
 
-        selectedProduct = new SelectedProduct("",0,"",0,"",0);
-        actualList = new ActualList();
+        selectedProduct = new SelectedProduct("",0,"",0,"",0,0);
+        actualList = new ListTools();
 
         aceptar = (TextView)findViewById(R.id.new_product_acept);
         cancelar = (TextView)findViewById(R.id.new_product_cancel);
@@ -90,11 +118,21 @@ public class AddProductCard extends Activity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        spinnerFamily.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+                selectedProduct.setFamily(position+1);
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void prepareSppiner(){
         spinnerCuantityUnit = (Spinner) findViewById(R.id.sppiner_cuantity_unit);
+        spinnerFamily = (Spinner) findViewById(R.id.sppiner_family);
         spinnerCuantityUnit.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, UNITYS));
+        spinnerFamily.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FAMILY));
     }
 
     public void insertProductLogic(){
@@ -105,7 +143,7 @@ public class AddProductCard extends Activity {
            } else {
                dba.insertData(selectedProduct.insertProductInDBQuery());
                //contar elementos de la lista y actualizar nuemero de elementos de la lista
-               actualList.setListSize(actualList.getListSize());
+               actualList.setListSize(dba, spApp.getListID(), actualList.getListSize(dba, spApp.getListID()));
            }
            Salir();
        };
@@ -144,16 +182,14 @@ public class AddProductCard extends Activity {
                Log.d("FaltaPan", "El producto no existe");
                 c.close();
                dba.insertData(ContractorTableValues.TablaProducto.TABLE_NAME, selectedProduct.getProductValues());
-               //dba.insertData(selectedProduct.getProductValues());// ATENCION recive un String no un ContentValues,Cambialo
-                c = dba.getCursor(selectedProduct.getNameQuery());
+               c = dba.getCursor(selectedProduct.getNameQuery());
                c.moveToFirst();
                selectedProduct.setId(c.getInt(1)) ;
-               Log.d("FaltaPan", "El producto " +c.getString(0)+" fue insertado correctamente con ID:"+c.getInt(1));
-                c.close();
+               c.close();
            }else{
                selectedProduct.setId(c.getInt(1));
-               Log.d("FaltaPan", "El producto " + c.getInt(0) + " existe");
            }
+           Log.d("FaltaPan", "El ID del producto es "+selectedProduct.id);
     }
 
     public boolean productAlreadyInList(){
@@ -168,9 +204,9 @@ public class AddProductCard extends Activity {
                     case R.id.new_product_acept:
                         insertProductLogic();
                         break;
-                        case R.id.new_product_cancel:
-                            Salir();
-                            break;
+                    case R.id.new_product_cancel:
+                        Salir();
+                        break;
                 }
             }
         };
@@ -189,53 +225,6 @@ public class AddProductCard extends Activity {
         overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
 
-    private class ActualList {
-
-        public int getListSize(){
-            String query = "SELECT COUNT("+ContractorTableValues.TablaListaProducto.ID_LISTA
-                    +") FROM "+ContractorTableValues.TablaListaProducto.TABLE_NAME
-                    +" WHERE "+ContractorTableValues.TablaListaProducto.ID_LISTA
-                    +"="+spApp.getListID()+";";
-
-            Cursor c = dba.getCursor(query);
-            c.moveToFirst();
-
-            return c.getInt(0);
-        }
-
-        public int getListBuyedSize(){
-            String query = "SELECT COUNT("+ ContractorTableValues.TablaListaProducto.ID_LISTA
-                    +") FROM "+ ContractorTableValues.TablaListaProducto.TABLE_NAME
-                    +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
-                    +"="+spApp.getListID()
-                    +" AND "+ ContractorTableValues.TablaListaProducto.ESTADO_PRODUCTO
-                    +"= 'C'";
-
-            Cursor c = dba.getCursor(query);
-            c.moveToFirst();
-
-            return c.getInt(0);
-        }
-
-
-        public void setListSize(int size){
-            String query = "UPDATE "+ ContractorTableValues.TablaLista.TABLE_NAME
-                    +" SET "+ ContractorTableValues.TablaLista.NUM_ELEMENTOS
-                    +"="+ size
-                    +" WHERE "+ ContractorTableValues.TablaLista._ID
-                    +"="+ spApp.getListID();
-            dba.updateDate(query);
-        }
-
-        public void setListBuyedSize(int size){
-            String query = "UPDATE "+ ContractorTableValues.TablaLista.TABLE_NAME
-                    +" SET "+ ContractorTableValues.TablaLista.NUM_ELEMENTOS_COMPRADOS
-                    +"="+ size
-                    +" WHERE "+ ContractorTableValues.TablaLista._ID
-                    +"="+ spApp.getListID();
-            dba.updateDate(query);
-        }
-    }
 
     private class SelectedProduct {
         private String productName;
@@ -243,14 +232,16 @@ public class AddProductCard extends Activity {
         private String cuantityUnit;
         private float price;
         private String brand;
+        private int  family;
         private int id;
 
-        public SelectedProduct(String productName,int cuantity,String cuantityUnit,int price,String brand,int id){
+        public SelectedProduct(String productName,int cuantity,String cuantityUnit,int price,String brand,int family,int id){
             this.productName = productName;
             this.cuantity = cuantity;
             this.cuantityUnit = cuantityUnit;
             this.price = price;
             this.brand = brand;
+            this.family = family;
             this.id = id;
         }
         public SelectedProduct(){}
@@ -273,6 +264,10 @@ public class AddProductCard extends Activity {
 
         public void setBrand(String brand) {
             this.brand = brand;
+        }
+
+        public void setFamily(int family) {
+            this.family = family;
         }
 
         public void setId(int id) {
@@ -345,7 +340,8 @@ public class AddProductCard extends Activity {
             cv.put(ContractorTableValues.TablaProducto.NOMBRE,productName);
             cv.put(ContractorTableValues.TablaProducto.FECHA_CREACION,(new SimpleDateFormat("dd/MM/yyyy")).format(new Date()));
             //Falta Definir Familia desde la UI para los productos insertados a mano.
-            cv.put(ContractorTableValues.TablaProducto.FAMILIA,"1");
+            cv.put(ContractorTableValues.TablaProducto.FAMILIA,family);
+            Log.d("FaltaPan", "Datos de producto"+productName+","+family);
             return cv;
         }
     }

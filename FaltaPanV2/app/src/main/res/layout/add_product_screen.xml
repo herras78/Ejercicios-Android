@@ -17,7 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#555555"
+            android:background="@drawable/dialog_border"
             android:orientation="vertical">
 
             <TextView
@@ -70,6 +70,16 @@
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:layout_below="@+id/lbl_new_product_name"
                 android:layout_toRightOf="@+id/edit_cuantity">
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/sppiner_family"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:layout_below="@+id/sppiner_cuantity_unit"
+                android:layout_toRightOf="@+id/edit_price">
             </Spinner>
 
             <TextView

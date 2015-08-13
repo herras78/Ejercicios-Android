@@ -105,18 +105,20 @@ public class ProductScreen extends AppCompatActivity {
                 " ON TLP.ID_LISTA = TL._id\n" +
                 "JOIN T_FAMILIA TF\n" +
                 " ON TF._id = TP.FAMILIA\n" +
-                "WHERE TL.NOMBRE = '"+ listName +"';";
+                "WHERE TL._id = "+ spApp.getListID()+";";
 
         Cursor c = dba.getCursor(query);
-       // Log.d("FaltaPan", "Cargando datos de Lista:" + query);
+        Log.d("FaltaPan", "Cargando datos de Lista:" + query);
         if(c.moveToFirst()){
+            Log.d("FaltaPan", "MoveToFisrt true" );
             for (int i = 0; i < c.getCount(); i++) {
                 datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getInt(8),c.getInt(9),c.getString(10)));
                 if (i < c.getCount()-1) {
+                    Log.d("FaltaPan", "Producto Nº"+ i );
                     c.moveToNext();
                 }
             }
-        }
+        }else{Log.d("FaltaPan", "MoveToFisrt false" );}
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -132,6 +134,8 @@ public class ProductScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Mejor con un Switch, e incluye el boton back
                 if (view.getId() == R.id.add_product_btn) {
                     startActivity(new Intent(ProductScreen.this, AddProductCard.class));
                     overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);

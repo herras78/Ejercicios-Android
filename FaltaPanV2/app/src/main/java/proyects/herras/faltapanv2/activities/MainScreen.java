@@ -1,5 +1,6 @@
 package proyects.herras.faltapanv2.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
@@ -12,9 +13,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 
@@ -81,6 +84,7 @@ public class MainScreen extends AppCompatActivity {
         getData();
         listRecyclerViewAdapter = new ListRecyclerViewAdapter(datos);
         listRecyclerViewAdapter.setOnClickListener(getOnClickListener(null));
+        listRecyclerViewAdapter.setOnLongClickListener(getOnLongClickListener());
         return listRecyclerViewAdapter;
     }
 
@@ -115,6 +119,50 @@ public class MainScreen extends AppCompatActivity {
                 }
             }
         };
+    }
+
+    public View.OnLongClickListener getOnLongClickListener(){
+        return new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View v) {
+                PopListOpt();
+                return false;
+            }
+        };
+    }
+
+    public void PopListOpt(){
+
+        final AlertDialog.Builder grouplist = new AlertDialog.Builder(this);
+        final AlertDialog alert = grouplist.create();
+        View botones = LayoutInflater.from(this).inflate(R.layout.pop_list_opt,(ViewGroup) findViewById(R.id.dialog_list_opt));
+
+        final FloatingActionButton edit = (FloatingActionButton) botones.findViewById(R.id.edit_list_btn);
+        final FloatingActionButton delte = (FloatingActionButton)botones.findViewById(R.id.delete_list_btn);
+        final FloatingActionButton cancel = (FloatingActionButton)botones.findViewById(R.id.cancel_list_btn);
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+        });
+
+        delte.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                alert.dismiss();
+            }
+        });
+
+        //grouplist.setIcon(R.drawable.pesoico);
+        //grouplist.setTitle("¿Que desea hacer?");
+        alert.setView(botones);
+        alert.show();
     }
 
     public void keepListSelected(String list){
