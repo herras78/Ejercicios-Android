@@ -1,5 +1,6 @@
 package proyects.herras.faltapanv2.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
@@ -13,9 +14,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -91,6 +94,7 @@ public class ProductScreen extends AppCompatActivity {
         getData();
         productRecyclerViewAdapter = new ProductRecyclerViewAdapter(datos);
         productRecyclerViewAdapter.setOnClickListener(getOnClickListener(null));
+        productRecyclerViewAdapter.setOnLongClickListener(getOnLongClickListener());
         return productRecyclerViewAdapter;
     }
 
@@ -162,6 +166,62 @@ public class ProductScreen extends AppCompatActivity {
                 }
             }
         };
+    }
+
+    public View.OnLongClickListener getOnLongClickListener(){
+        return new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View v) {
+                int prodId = Integer.parseInt(((TextView) v.findViewById(R.id.product_id)).getText().toString());
+                int position = Integer.parseInt(((TextView) v.findViewById(R.id.product_position)).getText().toString());
+                PopListOpt(prodId,position);
+                return false;
+            }
+        };
+    }
+
+    public void PopListOpt(final int prodId,final int position){
+
+        final AlertDialog.Builder grouplist = new AlertDialog.Builder(this);
+        final AlertDialog alert = grouplist.create();
+        View botones = LayoutInflater.from(this).inflate(R.layout.pop_product_opt,(ViewGroup) findViewById(R.id.dialog_product_opt));
+
+        final FloatingActionButton edit = (FloatingActionButton) botones.findViewById(R.id.edit_product_btn);
+        final FloatingActionButton delte = (FloatingActionButton)botones.findViewById(R.id.delete_product_btn);
+        final FloatingActionButton cancel = (FloatingActionButton)botones.findViewById(R.id.cancel_product_btn);
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Genera Bundle con los datos del producto para recuperarlos en addproduct y permitir su edicion.
+                startActivity(new Intent(ProductScreen.this, AddProductCard.class));
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
+            }
+        });
+
+        delte.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Actualiza el numero total de productos de la lista.
+                String query =("DELETE FROM "+ContractorTableValues.TablaListaProducto.TABLE_NAME
+                        +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
+                        +"="+ spApp.getListID()
+                        +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
+                        +"="+ prodId +";");
+                dba.deleteDate(query);
+                getData();
+                productRecyclerViewAdapter.notifyItemRemoved(position);
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                alert.dismiss();
+            }
+        });
+
+        //grouplist.setIcon(R.drawable.pesoico);
+        //grouplist.setTitle("¿Que desea hacer?");
+        alert.setView(botones);
+        alert.show();
     }
 
     public String getProductStatus(View view,int prodId){

@@ -143,13 +143,17 @@ public class MainScreen extends AppCompatActivity {
 
         edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                /*Crea un Bundle con los datos para precargarlos*/
+                startActivity(new Intent(MainScreen.this,AddListCard.class));
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
             }
         });
 
         delte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                /*Hay que borrar la relacion de lista productos
+                * hay que borrar la lista
+                * */
             }
         });
 

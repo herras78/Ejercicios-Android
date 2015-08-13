@@ -20,10 +20,11 @@ import proyects.herras.faltapanv2.support.Producto;
  */
 public class ProductRecyclerViewAdapter
         extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductRecyclerViewHolder>
-        implements View.OnClickListener {
+        implements View.OnClickListener,View.OnLongClickListener {
 
     private ArrayList<Producto> datos;
     private View.OnClickListener listener;
+    private View.OnLongClickListener longListener;
 
     public ProductRecyclerViewAdapter(ArrayList<Producto> datos){this.datos = datos;}
 
@@ -31,6 +32,7 @@ public class ProductRecyclerViewAdapter
         View itemView = LayoutInflater.from(viewgroup.getContext()).inflate(R.layout.item_product_card,viewgroup,false);
 
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
 
         ProductRecyclerViewHolder prvh = new ProductRecyclerViewHolder(itemView);
         return prvh;
@@ -40,9 +42,19 @@ public class ProductRecyclerViewAdapter
         this.listener = listener;
     }
 
+    public void setOnLongClickListener(View.OnLongClickListener listener){
+        this.longListener = listener;
+    }
+
     public void onClick(View view) {
         if(listener != null)
             listener.onClick(view);
+    }
+
+    public boolean onLongClick(View view) {
+        if(longListener != null)
+            longListener.onLongClick(view);
+        return false;
     }
 
     public void onBindViewHolder(ProductRecyclerViewHolder viewHolder, int pos){

@@ -15,7 +15,9 @@ import proyects.herras.faltapanv2.support.Lista;
 /**
  * Created by Herras on 27/07/2015.
  */
-public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerViewAdapter.ListaRecyclerViewHolder>implements View.OnClickListener,View.OnLongClickListener{
+public class ListRecyclerViewAdapter
+        extends RecyclerView.Adapter<ListRecyclerViewAdapter.ListaRecyclerViewHolder>
+        implements View.OnClickListener,View.OnLongClickListener{
 
     private ArrayList<Lista> datos;
     private View.OnClickListener listener;

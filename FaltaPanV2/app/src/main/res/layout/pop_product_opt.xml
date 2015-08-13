@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_horizontal"
-    android:id="@+id/dialog_list_opt"
+    android:id="@+id/dialog_product_opt"
     android:background="@drawable/dialog_border">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/delete_list_btn"
+        android:id="@+id/delete_product_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -19,7 +19,7 @@
         app:borderWidth="0dp"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/edit_list_btn"
+        android:id="@+id/edit_product_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -28,7 +28,7 @@
         app:borderWidth="0dp"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/cancel_list_btn"
+        android:id="@+id/cancel_product_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
