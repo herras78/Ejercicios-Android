@@ -48,6 +48,7 @@ public class ProductScreen extends AppCompatActivity {
     private ImageView toolbarImg;
     private ImageView backBtn;
     private SPApp spApp;
+    private ListTools actualList;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,8 @@ public class ProductScreen extends AppCompatActivity {
         ctlLayout.setTitle("Productos");
         titList.setText(listName);
         addProductBtn.setOnClickListener(getOnClickListener(addProductBtn));
+        actualList = new ListTools();
+
 
         prepareRecycler();
     }
@@ -207,6 +210,7 @@ public class ProductScreen extends AppCompatActivity {
                         +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
                         +"="+ prodId +";");
                 dba.deleteDate(query);
+                actualList.setListSize(dba, spApp.getListID(), actualList.getListSize(dba, spApp.getListID()));
                 getData();
                 productRecyclerViewAdapter.notifyItemRemoved(position);
             }
