@@ -30,6 +30,7 @@ import proyects.herras.faltapanv2.bbdd.DBDataLoader;
 import proyects.herras.faltapanv2.bbdd.DBStructureBuilder;
 import proyects.herras.faltapanv2.contractor.ContractorTableValues;
 import proyects.herras.faltapanv2.sharedpreferences.SPApp;
+import proyects.herras.faltapanv2.support.ListTools;
 import proyects.herras.faltapanv2.support.Lista;
 
 
@@ -41,6 +42,7 @@ public class MainScreen extends AppCompatActivity {
     private ListRecyclerViewAdapter listRecyclerViewAdapter;
     private ArrayList<Lista> datos;
     private FloatingActionButton addListBtn;
+    private SPApp spApp;
 
     private DBAcces dba;
 
@@ -53,7 +55,6 @@ public class MainScreen extends AppCompatActivity {
 
         instanceControls();
         prepareControls();
-
     }
 
     public void instanceControls(){
@@ -93,14 +94,15 @@ public class MainScreen extends AppCompatActivity {
         Cursor c = dba.getCursor(ContractorTableValues.TablaLista.TABLE_NAME,ContractorTableValues.TablaLista.getCabeceras());
         if(c.moveToFirst()){
             for (int i = 0; i < c.getCount(); i++) {
-                /*Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen)
-                Cabeceras c: NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EJECUCION,NUM_ELEMENTOS,NUM_ELEMENTOSCOMPRADOS,NOMBRE_TIENDA,ESTADO,PORCENTAJE_COMPLETADO,REF_IMAGEN*/
-                datos.add(new Lista(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getInt(5),c.getString(6),c.getString(7),c.getInt(8),c.getInt(9)));
+                /*Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen,int listId)
+                Cabeceras c: NOMBRE,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EJECUCION,NUM_ELEMENTOS,NUM_ELEMENTOSCOMPRADOS,NOMBRE_TIENDA,ESTADO,PORCENTAJE_COMPLETADO,REF_IMAGEN,_ID*/
+                datos.add(new Lista(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getInt(5),c.getString(6),c.getString(7),c.getInt(8),c.getInt(9),c.getInt(10)));
                 if (i < c.getCount()-1) {
                     c.moveToNext();
                 }
             }
         }
+        c.close();
     }
 
     public View.OnClickListener getOnClickListener(View v) {
@@ -113,7 +115,7 @@ public class MainScreen extends AppCompatActivity {
                     startActivity(new Intent(MainScreen.this,AddListCard.class));
                     overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 }else{
-                    keepListSelected(((TextView) view.findViewById(R.id.list_tit)).getText().toString());
+                    keepListSelected(Integer.parseInt(((TextView) view.findViewById(R.id.list_id)).getText().toString()));
                     startActivity(new Intent(MainScreen.this, ProductScreen.class));
                     overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 }
@@ -124,14 +126,17 @@ public class MainScreen extends AppCompatActivity {
     public View.OnLongClickListener getOnLongClickListener(){
         return new View.OnLongClickListener(){
             @Override
-            public boolean onLongClick(View v) {
-                PopListOpt();
+            public boolean onLongClick(View view) {
+                int listId = Integer.parseInt(((TextView) view.findViewById(R.id.list_id)).getText().toString());
+                int position = Integer.parseInt(((TextView) view.findViewById(R.id.list_position)).getText().toString());
+                keepListSelected(listId);
+                PopListOpt(position);
                 return false;
             }
         };
     }
 
-    public void PopListOpt(){
+    public void PopListOpt(final int pos){
 
         final AlertDialog.Builder grouplist = new AlertDialog.Builder(this);
         final AlertDialog alert = grouplist.create();
@@ -151,9 +156,10 @@ public class MainScreen extends AppCompatActivity {
 
         delte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                /*Hay que borrar la relacion de lista productos
-                * hay que borrar la lista
-                * */
+                new ListTools().deleteList(dba,spApp.getListID());
+                getData();
+                listRecyclerViewAdapter.notifyItemRemoved(pos);
+                alert.dismiss();
             }
         });
 
@@ -169,11 +175,13 @@ public class MainScreen extends AppCompatActivity {
         alert.show();
     }
 
-    public void keepListSelected(String list){
-         Cursor c = dba.getCursor(ContractorTableValues.TablaLista.getQueryListToProductFields(list));
+    public void keepListSelected(int listId){
+        Log.d("FaltaPan", "keepListSelected:"+ listId);
+         Cursor c = dba.getCursor(ContractorTableValues.TablaLista.getQueryListToProductFields(listId));
         c.moveToFirst();
-        SPApp spApp = new SPApp(this);
+        spApp = new SPApp(this);
         spApp.setSelectedList(c.getString(0), c.getInt(1), c.getInt(2));
+        c.close();
     }
 
     public void deployDB(){

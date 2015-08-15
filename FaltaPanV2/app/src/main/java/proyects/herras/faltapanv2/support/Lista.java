@@ -14,8 +14,9 @@ public class Lista {
     private String estado; // En curso "R", Terminada "T" , Pendiente "P" , Inactiva "I" , Eliminada "E"
     private int porcentajeCompletado; //En caso de que la compra no este completada, indica el porcentaje completado.
     private int imagen; //R.id de la imagen que se quiere insertar.
+    private int listId;
 
-    public Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen){
+    public Lista(String nombre,String fechaCreacion,String fechaModificacion,String fechaEjecucion,int numElementos,int numElementosComprados,String tienda, String estado,int porcentajeCompletado,int imagen,int listId){
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
@@ -26,6 +27,8 @@ public class Lista {
         this.estado = estado;
         this.porcentajeCompletado = porcentajeCompletado;//Este dato se precalcuara en el adaptador.
         this.imagen = imagen;
+        this.listId= listId;
+
     }
 
     public String getNombre() {
@@ -106,5 +109,13 @@ public class Lista {
 
     public void setImagen(int imagen) {
         this.imagen = imagen;
+    }
+
+    public int getListId() {
+        return listId;
+    }
+
+    public void setListId(int listId) {
+        this.listId = listId;
     }
 }

@@ -142,8 +142,7 @@ public class AddProductCard extends Activity {
                dba.updateDate(selectedProduct.updateProductInDBQuery());
            } else {
                dba.insertData(selectedProduct.insertProductInDBQuery());
-               //contar elementos de la lista y actualizar nuemero de elementos de la lista
-               actualList.setListSize(dba, spApp.getListID(), actualList.getListSize(dba, spApp.getListID()));
+               actualList.setListSize(dba, spApp.getListID());
            }
            Salir();
        };

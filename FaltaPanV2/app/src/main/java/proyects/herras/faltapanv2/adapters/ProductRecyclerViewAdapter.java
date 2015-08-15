@@ -60,7 +60,6 @@ public class ProductRecyclerViewAdapter
     public void onBindViewHolder(ProductRecyclerViewHolder viewHolder, int pos){
         Producto item = datos.get(pos);
         viewHolder.bindProduct(item,pos);
-
     }
 
     public int getItemCount() {

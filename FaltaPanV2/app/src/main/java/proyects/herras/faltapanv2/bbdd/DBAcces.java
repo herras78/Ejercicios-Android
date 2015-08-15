@@ -68,8 +68,4 @@ public class DBAcces {
         db = dbManager.getReadableDatabase();
         return db.rawQuery(query,null);
     }
-
-
-
-
 }

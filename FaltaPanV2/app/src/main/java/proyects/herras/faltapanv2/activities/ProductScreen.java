@@ -1,5 +1,6 @@
 package proyects.herras.faltapanv2.activities;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,7 +80,7 @@ public class ProductScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
         listName = spApp.getListName();
         toolbarImg.setImageResource(spApp.getListImgRef());
-        ctlLayout.setTitle("Productos");
+        ctlLayout.setTitle("0/5 Productos 0,00€");
         titList.setText(listName);
         addProductBtn.setOnClickListener(getOnClickListener(addProductBtn));
         actualList = new ListTools();
@@ -119,7 +121,7 @@ public class ProductScreen extends AppCompatActivity {
         if(c.moveToFirst()){
             Log.d("FaltaPan", "MoveToFisrt true" );
             for (int i = 0; i < c.getCount(); i++) {
-                datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4),c.getString(5),c.getInt(6),c.getString(7),c.getInt(8),c.getInt(9),c.getString(10)));
+                datos.add(new Producto(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getFloat(4),c.getString(5),c.getFloat(6),c.getString(7),c.getInt(8),c.getInt(9),c.getString(10)));
                 if (i < c.getCount()-1) {
                     Log.d("FaltaPan", "Producto Nº"+ i );
                     c.moveToNext();
@@ -155,11 +157,11 @@ public class ProductScreen extends AppCompatActivity {
                     switch (getProductStatus(view, prodId)) {
                         case "P":
                             setProductStatus("C", prodId, position);
-                            new ListTools().setListBuyedSize(dba, spApp.getListID(), new ListTools().getListBuyedSize(dba, spApp.getListID()));
+                            actualList.setListBuyedSize(dba, spApp.getListID());
                             break;
                         case "C":
                             setProductStatus("P", prodId, position);
-                            new ListTools().setListBuyedSize(dba, spApp.getListID(), new ListTools().getListBuyedSize(dba, spApp.getListID()));
+                            actualList.setListBuyedSize(dba, spApp.getListID());
                             break;
                         case "S":
                         case "D":
@@ -203,16 +205,12 @@ public class ProductScreen extends AppCompatActivity {
 
         delte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Actualiza el numero total de productos de la lista.
-                String query =("DELETE FROM "+ContractorTableValues.TablaListaProducto.TABLE_NAME
-                        +" WHERE "+ ContractorTableValues.TablaListaProducto.ID_LISTA
-                        +"="+ spApp.getListID()
-                        +" AND "+ ContractorTableValues.TablaListaProducto.ID_PRODUCTO
-                        +"="+ prodId +";");
-                dba.deleteDate(query);
-                actualList.setListSize(dba, spApp.getListID(), actualList.getListSize(dba, spApp.getListID()));
+                actualList.deleteProductOnList(dba, spApp.getListID(), prodId);
+                actualList.setListSize(dba, spApp.getListID());
+                actualList.setListBuyedSize(dba, spApp.getListID());
                 getData();
                 productRecyclerViewAdapter.notifyItemRemoved(position);
+                alert.dismiss();
             }
         });
 
@@ -222,10 +220,16 @@ public class ProductScreen extends AppCompatActivity {
             }
         });
 
-        //grouplist.setIcon(R.drawable.pesoico);
-        //grouplist.setTitle("¿Que desea hacer?");
+       /* WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(alert.getWindow().getAttributes());
+        lp.width = 350;
+        lp.height = 1150;
+        lp.x=-700;
+        lp.y=180;*/
+
         alert.setView(botones);
         alert.show();
+       // alert.getWindow().setAttributes(lp);
     }
 
     public String getProductStatus(View view,int prodId){

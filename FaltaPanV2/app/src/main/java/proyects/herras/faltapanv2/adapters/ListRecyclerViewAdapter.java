@@ -1,6 +1,7 @@
 package proyects.herras.faltapanv2.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ public class ListRecyclerViewAdapter
 
     public void onBindViewHolder(ListaRecyclerViewHolder viewHolder, int pos){
         Lista item = datos.get(pos);
-        viewHolder.bindLista(item);
+        viewHolder.bindLista(item,pos);
     }
 
     public int getItemCount() {
@@ -72,6 +73,8 @@ public class ListRecyclerViewAdapter
         private TextView txtNumProduct;
         private TextView txtPercentList;
         private TextView txtDate;
+        private TextView listId;
+        private TextView listPosotion;
         //private ImageView imgStatusList ;
         //private ImageView imgPercentList ;
 
@@ -82,18 +85,23 @@ public class ListRecyclerViewAdapter
             txtNumProduct = (TextView)itemView.findViewById(R.id.num_product);
             txtPercentList = (TextView)itemView.findViewById(R.id.percent_list);
             txtDate = (TextView)itemView.findViewById(R.id.list_date);
+            listId = (TextView)itemView.findViewById(R.id.list_id);
+            listPosotion =(TextView)itemView.findViewById(R.id.list_position);
         }
 
-        public void bindLista(Lista list){
+        public void bindLista(Lista list,int pos){
             imgList.setImageResource(list.getImagen());
             txtTitList.setText(list.getNombre());
-            txtNumProduct.setText(list.getNumElementosComprados()+ "/" +list.getNumElementos()+ " Productos");
+            txtNumProduct.setText(list.getNumElementosComprados() + "/" + list.getNumElementos() + " Productos");
             txtPercentList.setText(getPercent(list)+"% Completado");
             txtDate.setText(list.getFechaCreacion());
+            listId.setText(list.getListId()+"");
+            listPosotion.setText(pos+"");
         }
 
         public int getPercent(Lista list){
-            if(list.getNumElementosComprados() == 0) return 0;
+            //Log.d("FaltaPan","Numero de elementos:"+list.getNumElementosComprados());
+            if(list.getNumElementosComprados() == 0 ) return 0;
             else return (int)((list.getNumElementosComprados()*100)/ list.getNumElementos());
         }
     }

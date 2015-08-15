@@ -85,15 +85,16 @@ public class ContractorTableValues {
                     NOMBRE_TIENDA,
                     ESTADO,
                     PORCENTAJE_COMPLETADO,
-                    REF_IMAGEN
+                    REF_IMAGEN,
+                    _ID
             };
 
             return cabeceras;
 
         }
 
-        public static String getQueryListToProductFields(String lista){
-            return "SELECT "+ NOMBRE +","+ REF_IMAGEN +","+ _ID  +" FROM "+ TABLE_NAME +" WHERE "+ NOMBRE +"='"+ lista +"'";
+        public static String getQueryListToProductFields(int listId){
+            return "SELECT "+ NOMBRE +","+ REF_IMAGEN +","+ _ID  +" FROM "+ TABLE_NAME +" WHERE "+ _ID +"='"+ listId +"'";
         }
 
         public static String getTableName() {
